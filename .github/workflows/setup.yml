@@ -1,130 +1,95 @@
-# ──────────────────────────────────────────────────────────────────────────────
-# setup.yml — 首次建档（两阶段，自动连续执行）
-#
-# 仓库名即 Twitter 用户名，无需任何配置。
-#
-# 第一阶段：fetch-cdx → fetch-html → build-index → push → 开启Pages
-#   跑完后 Pages 立刻上线（纯文字版）
-#
-# 第二阶段：fetch-media → build-index → push
-#   媒体下载完成后自动更新
-#
-# 触发：Actions → 首次建档 → Run workflow
-# ──────────────────────────────────────────────────────────────────────────────
-
 name: 首次建档
 
 on:
   workflow_dispatch:
     inputs:
       since:
-        description: "抓取起始时间戳（可选，格式 YYYYMMDDhhmmss，留空抓全部）"
+        description: '从指定日期开始抓取 (YYYYMMDD，留空则全量)'
         required: false
-        default: ""
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+        default: ''
 
 jobs:
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    permissions:
+      contents: write
 
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 读取用户名
+      - name: 读取账号信息
         id: info
         run: |
-          U="${{ github.event.repository.name }}"
-          OWNER="${{ github.repository_owner }}"
+          U=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          OWNER=$(echo "${{ github.repository }}" | cut -d'/' -f1)
           PAGES_URL="https://${OWNER}.github.io/${U}/"
-          echo "username=$U"          >> $GITHUB_OUTPUT
+          echo "username=$U"    >> $GITHUB_OUTPUT
+          echo "owner=$OWNER"   >> $GITHUB_OUTPUT
           echo "pages_url=$PAGES_URL" >> $GITHUB_OUTPUT
-          echo "📋 目标账号: $U"
-          echo "🔗 Pages 地址: $PAGES_URL"
+          echo "✅ 账号：@${U}  Pages：${PAGES_URL}"
 
       - name: 安装依赖
-        run: pip install requests beautifulsoup4 --quiet
+        run: pip install requests beautifulsoup4 lxml
 
-      # ⚠️  archive.py 直链硬编码在这里，仓库名变更时修改此处 URL
-      - name: 拉取 archive.py
+      - name: 拉取最新脚本与模板
         run: |
-          curl -fsSL \
-            "https://raw.githubusercontent.com/sjshb57/Test/main/archive.py" \
-            -o archive.py
-          echo "✅ archive.py ($(wc -l < archive.py) 行)"
+          curl -fsSL "https://raw.githubusercontent.com/sjshb57/Test/main/archive.py" \
+            -o /tmp/archive.py
+          curl -fsSL "https://raw.githubusercontent.com/sjshb57/Test/main/index.html" \
+            -o index.html || true
+          curl -fsSL "https://raw.githubusercontent.com/sjshb57/Test/main/.nojekyll" \
+            -o .nojekyll || touch .nojekyll
+          echo "✅ archive.py ($(wc -l < /tmp/archive.py) 行)"
 
-      - name: 拉取 index.html 和 .nojekyll
+      - name: 替换 index.html 中的账号名
         run: |
-          U="${{ steps.info.outputs.username }}"
-          curl -fsSL \
-            "https://raw.githubusercontent.com/sjshb57/Test/main/index.html" \
-            -o index.html
-          curl -fsSL \
-            "https://raw.githubusercontent.com/sjshb57/Test/main/.nojekyll" \
-            -o .nojekyll
-          sed -i "s/const ACCOUNTS_HARDCODED = \['AnIncandescence', 'TauCeti_10700'\]/const ACCOUNTS_HARDCODED = ['$U']/" index.html
-          echo "✅ index.html + .nojekyll（已替换用户名）"
+          U=${{ steps.info.outputs.username }}
+          sed -i "s/const ACCOUNTS_HARDCODED = \[.*\]/const ACCOUNTS_HARDCODED = ['${U}']/" index.html || true
 
-      - name: 建目录结构
+      - name: 建立目录结构
         run: |
-          U="${{ steps.info.outputs.username }}"
-          mkdir -p accounts/$U/wayback_snapshots/{html,json,image,video,avatar,_log}
-          echo "✅ accounts/$U/ 目录已建立"
-
-      - name: 生成占位 profile.json
-        run: |
-          U="${{ steps.info.outputs.username }}"
-          cat > accounts/$U/wayback_snapshots/profile.json << EOF
-          {
-            "name": "",
-            "username": "@$U",
-            "bio": "",
-            "location": "",
-            "link": "",
-            "avatar": "avatar/avatar.jpg",
-            "banner": "avatar/1500x500.jpg"
-          }
-          EOF
-          echo "✅ profile.json 已生成（请事后手动补全）"
+          U=${{ steps.info.outputs.username }}
+          mkdir -p accounts/${U}/wayback_snapshots/{html,json,image,video,avatar,_log}
+          if [ ! -f "accounts/${U}/wayback_snapshots/profile.json" ]; then
+            echo "{\"name\":\"\",\"username\":\"@${U}\",\"avatar\":\"avatar/avatar.jpg\",\"banner\":\"avatar/1500x500.jpg\"}" \
+              > accounts/${U}/wayback_snapshots/profile.json
+          fi
 
       - name: fetch-cdx
         run: |
-          U="${{ steps.info.outputs.username }}"
+          U=${{ steps.info.outputs.username }}
           SINCE="${{ github.event.inputs.since }}"
-          cd accounts/$U
+          cd accounts/${U}
           if [ -n "$SINCE" ]; then
-            python3 ../../archive.py fetch-cdx "$U" --from "$SINCE"
+            python3 /tmp/archive.py fetch-cdx "$U" --from "$SINCE"
           else
-            python3 ../../archive.py fetch-cdx "$U"
+            python3 /tmp/archive.py fetch-cdx "$U"
           fi
 
+      # ── 第一阶段：HTML + 纯文字版先上线 ───────────────────────────────────
       - name: fetch-html
         run: |
           cd accounts/${{ steps.info.outputs.username }}
-          python3 ../../archive.py fetch-html || true
+          python3 /tmp/archive.py fetch-html || true
 
       - name: build-index（第一阶段）
         run: |
           cd accounts/${{ steps.info.outputs.username }}
-          python3 ../../archive.py build-index
+          python3 /tmp/archive.py build-index
 
-      # ── 第一次 push：Pages 先上线（纯文字版）──────────────────────────────
       - name: 生成 README
         run: |
           U=${{ steps.info.outputs.username }}
-          OWNER=${{ github.repository_owner }}
-          curl -fsSL https://raw.githubusercontent.com/sjshb57/Test/main/README.template.md \
+          OWNER=${{ steps.info.outputs.owner }}
+          curl -fsSL "https://raw.githubusercontent.com/sjshb57/Test/main/README.template.md" \
             -o README.md 2>/dev/null || echo "# ${U} 的推文存档" > README.md
           sed -i "s/{USERNAME}/${U}/g; s/{OWNER}/${OWNER}/g" README.md
 
-      - name: 推送第一阶段产物
+      - name: 推送第一阶段（纯文字版上线）
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -144,47 +109,50 @@ jobs:
           echo "✅ 第一阶段推送完成"
 
       - name: 开启 GitHub Pages
-        run: |
-          RESP=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/${{ github.repository }}/pages \
-            -d '{"source":{"branch":"main","path":"/"}}')
-          if [ "$RESP" = "201" ]; then
-            echo "✅ Pages 已开启"
-          elif [ "$RESP" = "409" ]; then
-            echo "ℹ️  Pages 已存在，跳过"
-          else
-            echo "⚠️  Pages 开启返回: $RESP"
-          fi
+        uses: actions/configure-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
-      - name: 设置仓库 Homepage 链接
+      - name: 设置仓库 Homepage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          RESP=$(curl -s -o /dev/null -w "%{http_code}" -X PATCH \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/${{ github.repository }} \
-            -d "{\"homepage\": \"${{ steps.info.outputs.pages_url }}\"}")
-          if [ "$RESP" = "200" ]; then
-            echo "✅ Homepage: ${{ steps.info.outputs.pages_url }}"
-          else
-            echo "⚠️  Homepage 设置返回: $RESP"
-          fi
+          gh repo edit "${{ github.repository }}" \
+            --homepage "${{ steps.info.outputs.pages_url }}" || true
 
-      # ── 第二阶段：下载媒体 ─────────────────────────────────────────────────
+      # ── 第二阶段：媒体 + clean-html ────────────────────────────────────────
       - name: fetch-media
         run: |
           cd accounts/${{ steps.info.outputs.username }}
-          python3 ../../archive.py fetch-media || true
+          python3 /tmp/archive.py fetch-media || true
 
+      - name: retry --image-failed
+        run: |
+          cd accounts/${{ steps.info.outputs.username }}
+          python3 /tmp/archive.py retry --image-failed || true
+
+      - name: retry --video-failed
+        run: |
+          cd accounts/${{ steps.info.outputs.username }}
+          python3 /tmp/archive.py retry --video-failed || true
+
+      - name: retry --avatar-failed
+        run: |
+          cd accounts/${{ steps.info.outputs.username }}
+          python3 /tmp/archive.py retry --avatar-failed || true
+
+      - name: clean-html
+        run: |
+          cd accounts/${{ steps.info.outputs.username }}
+          python3 /tmp/archive.py clean-html || true
 
       - name: build-index（第二阶段）
         run: |
           cd accounts/${{ steps.info.outputs.username }}
-          python3 ../../archive.py build-index
+          python3 /tmp/archive.py build-index
 
-      # ── 第二次 push：媒体版上线 ────────────────────────────────────────────
-      - name: 推送第二阶段产物
+      - name: 推送第二阶段（媒体版上线）
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
