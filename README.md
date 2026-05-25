@@ -33,7 +33,6 @@ accounts/
         video_*.txt
         avatar_*.txt
         media_*.txt
-        clean_*.txt
 ```
 
 ---
