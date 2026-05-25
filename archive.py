@@ -4957,8 +4957,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     # clean-html
     p = sub.add_parser("clean-html", help="清洗 HTML，重写媒体路径为本地引用")
-    _add_retry_args(p, FAILED_CLEAN)
-    p.add_argument("--workers", type=int, default=4)
+    p.add_argument("--force", action="store_true", help="忽略已清洗标记，全部重新清洗")
+    p.add_argument("--workers", type=int, default=4, help="并发线程数（默认 4）")
     p.set_defaults(func=cmd_clean_html)
 
     # build-index
