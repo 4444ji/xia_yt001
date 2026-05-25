@@ -116,11 +116,27 @@ jobs:
           python3 ../../archive.py build-index
 
       # ── 第一次 push：Pages 先上线（纯文字版）──────────────────────────────
+      - name: 生成 README
+        run: |
+          U=${{ steps.info.outputs.username }}
+          OWNER=${{ github.repository_owner }}
+          curl -fsSL https://raw.githubusercontent.com/sjshb57/Test/main/README.template.md \
+            -o README.md 2>/dev/null || echo "# ${U} 的推文存档" > README.md
+          sed -i "s/{USERNAME}/${U}/g; s/{OWNER}/${OWNER}/g" README.md
+
       - name: 推送第一阶段产物
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
+          git diff --cached --name-only | while IFS= read -r f; do
+            [ -f "$f" ] || continue
+            size=$(stat -c%s "$f" 2>/dev/null || echo 0)
+            if [ "$size" -gt 104857600 ]; then
+              echo "⚠️ 跳过超大文件 ($(( size / 1048576 ))MB): $f"
+              git rm --cached "$f"
+            fi
+          done
           git diff --cached --quiet && echo "无新内容" && exit 0
           COUNT=$(git diff --cached --numstat | wc -l)
           git commit -m "🗂️ 首次建档 HTML: ${{ steps.info.outputs.username }} (+${COUNT} 文件) [skip ci]"
@@ -173,6 +189,14 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
+          git diff --cached --name-only | while IFS= read -r f; do
+            [ -f "$f" ] || continue
+            size=$(stat -c%s "$f" 2>/dev/null || echo 0)
+            if [ "$size" -gt 104857600 ]; then
+              echo "⚠️ 跳过超大文件 ($(( size / 1048576 ))MB): $f"
+              git rm --cached "$f"
+            fi
+          done
           if git diff --cached --quiet; then
             echo "✅ 无新媒体文件"
             exit 0
