@@ -6,6 +6,7 @@ archive.py — IncandescenceReader 一体化存档工具
 合并了原本分散在 8 个脚本里的所有功能：
   fetch_json.py / 0037.py 的下载部分 → fetch-html
   fetch_media.py                    → fetch-media
+  0037.py 的清洗部分                 → clean-html
   build_index.py                    → build-index
   fetch_avatars.py                  → fetch-avatars
   dedup_media.py                    → dedup
@@ -24,6 +25,7 @@ archive.py — IncandescenceReader 一体化存档工具
   python ../../archive.py fetch-cdx <username>
   python ../../archive.py fetch-html
   python ../../archive.py fetch-media
+  python ../../archive.py clean-html
   python ../../archive.py build-index
   # 或一把梭（不含 fetch-cdx）：
   python ../../archive.py all
@@ -1351,6 +1353,22 @@ def dedupe_snapshots(snapshots: list[tuple[str, str]]) -> list[tuple[str, str]]:
     return out
 
 
+# ============================================================================
+# ── HTML：JSON 提取、清洗、Source 注释处理 ─────────────────────────────────
+# ============================================================================
+
+# 用于剥离 prettify 后 HTML 顶部所有 Source 注释行（含可能的空行）
+_SOURCE_COMMENT_RE = re.compile(
+    r"\A(?:\s*<!--\s*Source:[^>]*-->\s*\n?)+",
+    re.IGNORECASE,
+)
+
+
+def strip_existing_source_comments(html_text: str) -> str:
+    """剥掉 HTML 开头所有连续的 <!-- Source: ... --> 注释（防止重复累积）。"""
+    return _SOURCE_COMMENT_RE.sub("", html_text)
+
+
 def extract_json_from_page(html_text: str) -> dict | None:
     """从 wayback if_ 页面提取推文 JSON（来源：<div id='jsonview'><pre>）。"""
     soup = BeautifulSoup(html_text, "html.parser")
@@ -1377,12 +1395,160 @@ def _clean_script_content(src: str) -> str:
     return src
 
 
+def clean_html_text(html_text: str, source_url: str, media_index: MediaIndex) -> str:
+    """
+    清洗与改写 HTML：
+      1. 剥掉已有的 Source 注释（防止累积）
+      2. 清理 <script> 里的 jsonview 噪声
+      3. 改写头像 src → ../avatar/avatar_{pid}.{ext}（直接由 pid 构造，不查 media_index）
+      4. 改写推文图片 src → ../image/{filename}（本地有则用真实名，否则构造预期名）
+      5. BS4：删 notice / jsonview / 无效图视频，替换 video src
+      6. prettify + 去多余空行
+      7. 顶部恰好写入 1 行 <!-- Source: ... -->
+    """
+    # 1. 剥旧 Source
+    html_text = strip_existing_source_comments(html_text)
+
+    # 从 source_url 提取快照时间戳，用于构造图片预期文件名
+    _ts_m = re.search(r'/web/(\d{14})', source_url)
+    snapshot_ts = _ts_m.group(1) if _ts_m else ""
+
+    # 2. script 清理
+    html_text = re.sub(
+        r"(<script[^>]*>)(.*?)(</script>)",
+        lambda m: m.group(1) + _clean_script_content(m.group(2)) + m.group(3),
+        html_text,
+        flags=re.DOTALL,
+    )
+
+    # 3. 替换头像 src — 直接用 pid 构造唯一本地路径，不查 media_index
+    def avatar_replacer(match: re.Match) -> str:
+        tag = match.group(0)
+        src_m = re.search(
+            r'src="(https://web\.archive\.org/web/\d+im_/https://[^"]*profile_images/[^"]+)"',
+            tag,
+        )
+        if not src_m:
+            return tag
+        src_url = src_m.group(1)
+        pid = extract_profile_image_id(src_url)
+        if not pid:
+            return tag
+        ext = ".png" if ".png" in src_url.lower() else (
+              ".gif" if ".gif" in src_url.lower() else ".jpg")
+        return tag.replace(src_m.group(0), f'src="../avatar/avatar_{pid}{ext}"')
+
+    html_text = re.sub(
+        r'<img\s[^>]*src="https://web\.archive\.org/web/\d+im_/https://[^"]*profile_images/[^"]+"[^>]*/?>',
+        avatar_replacer,
+        html_text,
+    )
+
+    # 4. 替换推文图片 src
+    def image_replacer(match: re.Match) -> str:
+        prefix  = match.group(1)
+        src_url = match.group(2)
+        suffix  = match.group(3)
+        basename = extract_image_basename(src_url)
+        if basename:
+            fn = media_index.find_image(basename)
+            if fn:
+                return f'{prefix}../image/{fn}{suffix}'
+            # 没有本地记录 → 构造预期文件名（与 fetch-media 下载时一致）
+            if snapshot_ts:
+                # 从原始 pbs URL 构造安全文件名
+                _orig = re.search(r'im_/(https?://.*)', src_url)
+                _pbs_url = _orig.group(1) if _orig else src_url
+                _parsed = urlparse(_pbs_url)
+                _fbase = re.sub(r'[^\w\-_.]', '_',
+                                (_parsed.netloc + _parsed.path).strip('/'))[:120]
+                if not _fbase.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
+                    _fbase += ext_from_url(_pbs_url)
+                return f'{prefix}../image/{snapshot_ts}_{_fbase}{suffix}'
+        return match.group(0)
+
+    html_text = re.sub(
+        r'(<img\s[^>]*class="tweet-image[^"]*"[^>]*src=")(https://web\.archive\.org/web/\d+im_/[^"]+)(")',
+        image_replacer,
+        html_text,
+    )
+    html_text = re.sub(
+        r'(<img\s[^>]*src=")(https://web\.archive\.org/web/\d+im_/[^"]+)("[^>]*class="tweet-image[^"]*")',
+        image_replacer,
+        html_text,
+    )
+
+    # 5. BS4：删 notice / jsonview / 无效媒体；替换 video
+    soup = BeautifulSoup(html_text, "html.parser")
+
+    for tag in soup.find_all("div", class_="notice"):
+        tag.decompose()
+    for tag in soup.find_all("div", id="jsonview"):
+        tag.decompose()
+
+    # 图片：现在所有图片都已替换为本地路径（有记录用真实名，没记录用预期名）
+    # 不再需要删除 wayback 地址的图片标签，前端 onerror 处理文件不存在的情况
+
+    # 头像：已始终替换为预期本地路径 ../avatar/avatar_<pid>.{ext}
+
+    # 处理每个 <video>
+    for video_tag in soup.find_all("video"):
+        # 删 m3u8 source
+        for src_tag in video_tag.find_all("source"):
+            if ".m3u8" in src_tag.get("src", "").lower():
+                src_tag.decompose()
+
+        mp4_sources = video_tag.find_all("source")
+        if not mp4_sources:
+            video_tag.decompose()
+            continue
+
+        first_src = mp4_sources[0].get("src", "")
+        media_key = extract_video_media_key(first_src)
+        local_vname = ""
+        if media_key:
+            local_vname = media_index.find_video(media_key)
+            if local_vname and not os.path.exists(os.path.join(VIDEO_DIR, local_vname)):
+                local_vname = ""
+
+        if local_vname:
+            for src_tag in mp4_sources:
+                src_tag.decompose()
+            new_source = soup.new_tag("source", src=f"../video/{local_vname}", type="video/mp4")
+            video_tag.append(new_source)
+        else:
+            video_tag.decompose()
+
+    # 6. prettify + 去多余空行
+    try:
+        formatted = soup.prettify(indent_chars="  ")  # bs4 >= 4.13
+    except TypeError:
+        raw = soup.prettify()
+        lines = []
+        for line in raw.splitlines():
+            stripped = line.lstrip(" ")
+            depth = (len(line) - len(stripped)) // 4
+            lines.append("  " * depth + stripped)
+        formatted = "\n".join(lines)
+
+    result_lines = []
+    prev_blank = False
+    for line in formatted.splitlines():
+        is_blank = not line.strip()
+        if is_blank and prev_blank:
+            continue
+        result_lines.append(line)
+        prev_blank = is_blank
+    cleaned = "\n".join(result_lines)
+
+    # 7. 顶部写入恰好 1 行 Source 注释
+    return f"<!-- Source: {source_url} -->\n" + cleaned
 # ============================================================================
 # ── 子命令: fetch-html ──────────────────────────────────────────────────────
 # ============================================================================
 #
 # 一次下载，同时完成两件事：
-#   1. 把 wayback 原始 HTML 写到 html/{safe_filename}.html
+#   1. 把 wayback 原始 HTML 写到 html/{safe_filename}.html（未清洗，等 clean-html 处理）
 #   2. 从同一份 HTML 里提取 jsonview，写到 json/{safe_filename}.json
 #
 # 这样替代了原本 fetch_json.py + 0037.py 的网络下载部分（原来要请求两次同一 URL）。
@@ -1404,7 +1570,6 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
     if not force and json_exists and html_exists:
         return True, wayback_url, ""  # 都齐了，跳过
 
-
     if delay > 0:
         time.sleep(delay)
 
@@ -1413,7 +1578,7 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
     except Exception as e:
         return False, wayback_url, f"HTML 下载失败：{type(e).__name__}: {e}"
 
-    # 写 HTML（原始 wayback 快照，媒体路径由前端动态替换）
+    # 写 HTML（未清洗，clean-html 阶段再处理）
     try:
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_text)
@@ -1434,7 +1599,6 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
     else:
         json_status = "（页面无 jsonview）"
 
-    # 即使 JSON 抽取失败，HTML 已落地视为成功（部分快照只有 HTML 没有 jsonview）
     if json_ok:
         return True, wayback_url, ""
     return True, wayback_url, f"HTML OK，{json_status}"
@@ -1610,7 +1774,7 @@ def _download_one_image(item: dict, snapshot_ts: str, media_index: MediaIndex,
     url = item["url"]
     basename = extract_image_basename(url)
 
-    # 本地文件实际存在就跳过（force 时绕过 archive_index 状态，但不绕过本地文件）
+    # 本地文件实际存在就跳过（force 时绕过 archive_index 状态，但不重下已有文件）
     if basename:
         existing = media_index.find_image(basename)
         if existing and os.path.exists(os.path.join(IMAGE_DIR, existing)):
@@ -1692,7 +1856,7 @@ def _download_one_avatar(item: dict, snapshot_ts: str, media_index: MediaIndex,
         set_status(KIND_AVATAR, url, STATUS_FAILED_ALL, reason="无法识别 profile pid")
         return False, "无法识别 profile pid"
 
-    # 复用检查（本地有就跳过，force 时也检查本地文件）
+    # 复用检查（本地有就跳过）
     existing, hit = media_index.find_avatar(pid=pid, name=name, username=username)
     if existing:
         media_index.register_avatar(pid, name, username, existing)
@@ -2111,6 +2275,106 @@ def cmd_fetch_avatars(args: argparse.Namespace) -> int:
 
 
 # ============================================================================
+# ── 子命令: clean-html ──────────────────────────────────────────────────────
+# ============================================================================
+#
+# 读 html/ 里的 raw HTML，重写媒体路径为本地引用，原地覆盖。
+# 通过判断顶部是否已有 <!-- Source: ... --> 注释来识别"已清洗"，
+# 默认跳过已清洗文件；--force 强制重清。
+# ============================================================================
+
+def _is_html_cleaned(path: str) -> bool:
+    """读前 2KB 判断是否已清洗（有 Source 注释）。"""
+    try:
+        with open(path, encoding="utf-8") as f:
+            head = f.read(2048)
+        return bool(_SOURCE_COMMENT_RE.match(head))
+    except Exception:
+        return False
+
+
+def _extract_source_url_from_filename(fname: str) -> str:
+    """
+    从 html 文件名反推回 wayback 的 if_ URL，作为 Source 注释里的来源标记。
+    安全 fallback：如果反推不出来就用文件名本身。
+    """
+    base = fname[:-5] if fname.endswith(".html") else fname
+    ts = extract_timestamp_from_filename(base)
+    if not ts:
+        return f"local://{fname}"
+    rest = base[len(ts) + 1:]
+    return f"https://web.archive.org/web/{ts}if_/{rest}"
+
+
+def cmd_clean_html(args: argparse.Namespace) -> int:
+    """子命令入口：清洗 html/ 里的 HTML。"""
+    ensure_output_dirs()
+
+    if not os.path.isdir(HTML_DIR):
+        safe_print(f"[clean-html] HTML 目录不存在：{HTML_DIR}")
+        return 1
+
+    candidates = sorted(f for f in os.listdir(HTML_DIR) if f.endswith(".html"))
+    if not candidates:
+        safe_print("[clean-html] 没有 HTML 文件")
+        return 0
+
+    force = bool(args.force)
+
+    # 跳过已清洗（用 Source 注释判断）
+    to_run: list[str] = []
+    skipped = 0
+    for fname in candidates:
+        if not force and _is_html_cleaned(os.path.join(HTML_DIR, fname)):
+            skipped += 1
+            continue
+        to_run.append(fname)
+    if skipped:
+        safe_print(f"  跳过已清洗：{skipped} 个")
+    safe_print(f"[clean-html] 待清洗：{len(to_run)} 个")
+
+    if not to_run:
+        return 0
+
+    # 建媒体索引（一次性，所有清洗共用）
+    media_index = build_media_index(scan_json=True)
+
+    # 顺序清洗
+    failed = 0
+    success = 0
+    total = len(to_run)
+    for i, fname in enumerate(to_run, 1):
+        path = os.path.join(HTML_DIR, fname)
+        try:
+            with open(path, encoding="utf-8") as f:
+                content = f.read()
+        except Exception as e:
+            safe_print(f"[{i}/{total}] ✗ {fname}  读失败：{e}")
+            failed += 1
+            continue
+
+        source_url = _extract_source_url_from_filename(fname)
+        try:
+            cleaned = clean_html_text(content, source_url, media_index)
+        except Exception as e:
+            safe_print(f"[{i}/{total}] ✗ {fname}  清洗失败：{type(e).__name__}: {e}")
+            failed += 1
+            continue
+
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(cleaned)
+        except Exception as e:
+            safe_print(f"[{i}/{total}] ✗ {fname}  写回失败：{e}")
+            failed += 1
+            continue
+
+        success += 1
+        safe_print(f"[{i}/{total}] ✓ {fname}")
+
+    safe_print(f"[clean-html] 完成：成功 {success} / 失败 {failed}")
+    return 0 if not failed else 1
+# ============================================================================
 # ── 子命令: build-index（与 GitHub IncandescenceReader/build_index.py 一致）─
 # ============================================================================
 #
@@ -2182,7 +2446,7 @@ def _bi_resolve_avatar(src: str, avatar_index: dict) -> str:
     if not src:
         return src
     if src.startswith("../avatar/"):
-        return src  # 已经是本地路径
+        return src  # 已经是本地路径（clean-html 跑过的场景，兼容）
     pid = extract_profile_image_id(src)
     if pid and pid in avatar_index:
         return avatar_index[pid]
@@ -2694,7 +2958,8 @@ _RETRY_TARGETS: dict[str, tuple[bool, str, str]] = {
     "media_failed":      (False, KIND_MEDIA,  FAILED_MEDIA),
     "media_failed_all":  (True,  KIND_MEDIA,  FAILED_MEDIA_ALL),
     "html_failed":       (False, KIND_HTML,   FAILED_HTML),
-    "html_failed_all":   (True,  KIND_HTML,   FAILED_HTML_ALL),}
+    "html_failed_all":   (True,  KIND_HTML,   FAILED_HTML_ALL),
+}
 
 
 def _retry_url_level_media(kind: str, urls: list[str]) -> int:
@@ -4032,7 +4297,7 @@ def cmd_fetch_cdx(args: argparse.Namespace) -> int:
 # 把 json/ 渲染成 wayback 风格的 HTML，写入 html/。专用于私密账号场景
 # （没有真 wayback 快照，但通过 convert 拿到 dump JSON 后需要"伪造"HTML）。
 #
-# 关键：输出的 HTML 结构必须跟"真 wayback HTML"的产物
+# 关键：输出的 HTML 结构必须跟"真 wayback HTML + clean-html 清洗后"的产物
 # 严格一致，因为下游 build-index / Reader.html 用同一套 BeautifulSoup 选择器
 # 解析（#nonjsonview / .tweet-author / .tweet-content / .embedded-tweet-container
 # / .tweet-image / .tweet-video）。
@@ -4578,7 +4843,7 @@ def cmd_render_html(args: argparse.Namespace) -> int:
 # ── 子命令: all ─────────────────────────────────────────────────────────────
 # ============================================================================
 #
-# 按顺序跑 fetch-html → fetch-media → build-index。
+# 按顺序跑 fetch-html → fetch-media → clean-html → build-index。
 # 任何一步失败都继续往下走（保留失败列表供 --retry 用），但最终返回非零退出码。
 # ============================================================================
 
@@ -4586,7 +4851,7 @@ def cmd_all(args: argparse.Namespace) -> int:
     overall = 0
 
     safe_print("\n╔══════════════════════════════════════════════════════════╗")
-    safe_print("║  Phase 1/3: fetch-html                                   ║")
+    safe_print("║  Phase 1/4: fetch-html                                   ║")
     safe_print("╚══════════════════════════════════════════════════════════╝")
     a1 = argparse.Namespace(
         retry=False, force=False, file=None,
@@ -4595,7 +4860,7 @@ def cmd_all(args: argparse.Namespace) -> int:
     overall |= cmd_fetch_html(a1)
 
     safe_print("\n╔══════════════════════════════════════════════════════════╗")
-    safe_print("║  Phase 2/3: fetch-media                                  ║")
+    safe_print("║  Phase 2/4: fetch-media                                  ║")
     safe_print("╚══════════════════════════════════════════════════════════╝")
     a2 = argparse.Namespace(
         retry=False, force=False, file=None,
@@ -4604,10 +4869,16 @@ def cmd_all(args: argparse.Namespace) -> int:
     overall |= cmd_fetch_media(a2)
 
     safe_print("\n╔══════════════════════════════════════════════════════════╗")
-    safe_print("║  Phase 3/3: build-index                                  ║")
+    safe_print("║  Phase 3/4: clean-html                                   ║")
     safe_print("╚══════════════════════════════════════════════════════════╝")
-    a3 = argparse.Namespace()
-    overall |= cmd_build_index(a3)
+    a3 = argparse.Namespace(force=False)
+    overall |= cmd_clean_html(a3)
+
+    safe_print("\n╔══════════════════════════════════════════════════════════╗")
+    safe_print("║  Phase 4/4: build-index                                  ║")
+    safe_print("╚══════════════════════════════════════════════════════════╝")
+    a4 = argparse.Namespace()
+    overall |= cmd_build_index(a4)
 
     safe_print("\n[all] 全部阶段完成")
     return overall
@@ -4639,20 +4910,20 @@ def build_parser() -> argparse.ArgumentParser:
   fetch-html              下载 wayback HTML
   fetch-media             下载图片/视频/头像
   fetch-avatars           补缺头像
+  clean-html              清洗 HTML 重写媒体路径
   build-index             生成 Reader 用的 index.json
-  all                     fetch-html → fetch-media → build-index
+  all                     fetch-html → fetch-media → clean-html → build-index
 
 私密账号工作流（从外部 dump 转换）：
   convert <dump_dir>      把外部 dump 转成本项目格式（自动建立 archive_index）
   render-html             从 JSON 渲染 wayback 风格 HTML
 
-重试失败项（12 个子选项）：
+重试失败项（10 个子选项）：
   retry --image-failed [/--image-failed-all]      单图重试
   retry --video-failed [/--video-failed-all]      单视频重试
   retry --avatar-failed [/--avatar-failed-all]    单头像重试
   retry --media-failed [/--media-failed-all]      整条 JSON 媒体重试
   retry --html-failed [/--html-failed-all]        HTML 重试
-  retry --clean-failed [/--clean-failed-all]      清洗重试
 
 维护工具：
   dedup                   去重重复媒体 + 更新 HTML 引用
@@ -4683,6 +4954,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_retry_args(p, FAILED_AVATAR)
     p.add_argument("--workers", type=int, default=DEFAULT_WORKERS_AVATAR)
     p.set_defaults(func=cmd_fetch_avatars)
+
+    # clean-html
+    p = sub.add_parser("clean-html", help="清洗 HTML，重写媒体路径为本地引用")
+    _add_retry_args(p, FAILED_CLEAN)
+    p.add_argument("--workers", type=int, default=4)
+    p.set_defaults(func=cmd_clean_html)
 
     # build-index
     p = sub.add_parser("build-index", help="生成 index.json（profile.json 由用户手动维护）")
@@ -4728,7 +5005,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_render_html)
 
     # all
-    p = sub.add_parser("all", help="一把梭：fetch-html → fetch-media → build-index")
+    p = sub.add_parser("all", help="一把梭：fetch-html → fetch-media → clean-html → build-index")
     p.set_defaults(func=cmd_all)
 
     # retry  ★ 新子命令：12 个子选项
@@ -4754,10 +5031,6 @@ def build_parser() -> argparse.ArgumentParser:
                    help="重试 _log/html_failed.txt")
     g.add_argument("--html-failed-all",   action="store_true", dest="html_failed_all",
                    help="重试 _log/html_failed_all.txt")
-    g.add_argument("--clean-failed",      action="store_true", dest="clean_failed",
-                   help="重试 _log/clean_failed.txt")
-    g.add_argument("--clean-failed-all",  action="store_true", dest="clean_failed_all",
-                   help="重试 _log/clean_failed_all.txt")
     p.set_defaults(func=cmd_retry)
 
     # rebuild-index  ★ 新子命令：从 .txt 文件 + 本地媒体重建 archive_index.json
