@@ -120,13 +120,6 @@ ALL_LOG_TXT_FILES = [
     DONE_AVATAR, FAILED_AVATAR, FAILED_AVATAR_ALL,
 ]
 
-# 旧版兼容（仅用于迁移检测；新代码用上面的常量）
-LEGACY_NEGATIVE_CACHE_FILE = os.path.join(OUTPUT_DIR, "_negative_cache.json")
-LEGACY_DONE_HTML           = os.path.join(OUTPUT_DIR, "_done_list.txt")
-LEGACY_DONE_MEDIA          = os.path.join(OUTPUT_DIR, "_done_list_media.txt")
-LEGACY_FAILED_HTML         = os.path.join(OUTPUT_DIR, "_html_failed.txt")
-LEGACY_FAILED_MEDIA        = os.path.join(OUTPUT_DIR, "_media_failed.txt")
-LEGACY_FAILED_AVATARS      = os.path.join(OUTPUT_DIR, "_avatars_failed.txt")
 
 # 清单与备份
 URL_LIST_FILE   = os.path.join(OUTPUT_DIR, "_url_list.txt")
@@ -306,100 +299,6 @@ def _retry_wait_for(exc: Exception, attempt: int) -> float:
         if rl_wait is not None:
             wait = max(wait, rl_wait)
     return wait
-
-
-# ============================================================================
-# ── 负缓存（失败 URL 跳过机制）──────────────────────────────────────────────
-# ============================================================================
-#
-# 维护一份 _negative_cache.json：
-#   { "<URL>": {"reason": "...", "status": 404, "attempts": 3, "last_attempt": <epoch>} }
-#
-# 默认 fetch 时：遇到缓存里的 URL 直接跳过，不浪费请求。
-# 启用 --retry / --retry-403 时：忽略缓存，强制再试一次。
-# 4xx（特别是 403/404）写入缓存；超时/SSL/限速 不写入（因为可能稍后会好）。
-
-_negative_cache_data: dict[str, dict] | None = None
-_negative_cache_lock = threading.Lock()
-_negative_cache_dirty = False
-
-
-def load_negative_cache() -> dict[str, dict]:
-    """加载负缓存（单例）。"""
-    global _negative_cache_data
-    with _negative_cache_lock:
-        if _negative_cache_data is not None:
-            return _negative_cache_data
-        if not os.path.exists(LEGACY_NEGATIVE_CACHE_FILE):
-            _negative_cache_data = {}
-            return _negative_cache_data
-        try:
-            with open(LEGACY_NEGATIVE_CACHE_FILE, encoding="utf-8") as f:
-                data = json.load(f)
-            if not isinstance(data, dict):
-                data = {}
-            _negative_cache_data = data
-        except Exception:
-            _negative_cache_data = {}
-        return _negative_cache_data
-
-
-def save_negative_cache() -> None:
-    """把内存里的负缓存写回磁盘（只有 dirty 时才写）。"""
-    global _negative_cache_dirty
-    with _negative_cache_lock:
-        if not _negative_cache_dirty or _negative_cache_data is None:
-            return
-        os.makedirs(OUTPUT_DIR, exist_ok=True)
-        tmp_path = LEGACY_NEGATIVE_CACHE_FILE + ".tmp"
-        try:
-            with open(tmp_path, "w", encoding="utf-8") as f:
-                json.dump(_negative_cache_data, f, ensure_ascii=False, indent=2)
-            os.replace(tmp_path, LEGACY_NEGATIVE_CACHE_FILE)
-            _negative_cache_dirty = False
-        except Exception as e:
-            safe_print(f"[警告] 负缓存写入失败：{e}")
-
-
-def is_in_negative_cache(url: str) -> bool:
-    """该 URL 是否在负缓存里（永久跳过）。"""
-    cache = load_negative_cache()
-    with _negative_cache_lock:
-        return url in cache
-
-
-def add_to_negative_cache(url: str, reason: str, status_code: int | None = None) -> None:
-    """添加一个 URL 到负缓存（4xx 类错误）。"""
-    global _negative_cache_dirty
-    cache = load_negative_cache()
-    now = time.time()
-    with _negative_cache_lock:
-        entry = cache.get(url, {})
-        entry["reason"] = reason
-        if status_code is not None:
-            entry["status"] = status_code
-        entry["attempts"] = entry.get("attempts", 0) + 1
-        entry["last_attempt"] = now
-        cache[url] = entry
-        _negative_cache_dirty = True
-
-
-def remove_from_negative_cache(url: str) -> None:
-    """从负缓存里移除（重试模式下，成功后调用）。"""
-    global _negative_cache_dirty
-    cache = load_negative_cache()
-    with _negative_cache_lock:
-        if url in cache:
-            cache.pop(url, None)
-            _negative_cache_dirty = True
-
-
-def maybe_record_negative(url: str, exc: Exception) -> None:
-    """把"看起来永远不会成功"的失败写入负缓存。其它（超时/SSL）不写。"""
-    if isinstance(exc, requests.HTTPError) and exc.response is not None:
-        sc = exc.response.status_code
-        if 400 <= sc < 500 and sc not in (408, 429):
-            add_to_negative_cache(url, reason=f"HTTP {sc}", status_code=sc)
 
 
 # ============================================================================
@@ -965,7 +864,6 @@ def download_stream(url: str, filepath: str, log=None, timeout: int = 60,
 
 def download_with_candidates(urls: list[str], filepath: str, log=None,
                              headers: dict | None = None,
-                             skip_negative: bool = True,
                              timeout: int = 60) -> tuple[int, str]:
     """
     依次尝试每个候选 URL，任一成功即返回 (size, used_url)。
@@ -976,28 +874,20 @@ def download_with_candidates(urls: list[str], filepath: str, log=None,
       SSL / 4xx (除 408/429) → download_stream 不重试，直接抛 → 这里走下一个候选
       408/429/5xx/超时/网络抖动 → download_stream 重试 5 次
 
-    skip_negative=True 时跳过已在负缓存里的 URL；任一成功时把该 URL 从负缓存移除。
     """
     last_exc: Exception | None = None
     tried = 0
 
     for i, url in enumerate(urls, 1):
-        if skip_negative and is_in_negative_cache(url):
-            continue
         tried += 1
         try:
             if log and tried > 1:
                 log(f"  [候选 {i}/{len(urls)}] {url}")
             size = download_stream(url, filepath, log=log, headers=headers, timeout=timeout)
-            # 成功就把这个 URL 从负缓存清理掉（如果之前 403/404 过现在好了）
-            remove_from_negative_cache(url)
             return size, url
         except Exception as e:
             last_exc = e
-            maybe_record_negative(url, e)
             continue
-    if tried == 0:
-        raise RuntimeError("所有候选 URL 都在负缓存里，已跳过。用 --retry 强制重试。")
     if last_exc:
         raise last_exc
     raise RuntimeError("候选 URL 列表为空")
@@ -1514,9 +1404,6 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
     if not force and json_exists and html_exists:
         return True, wayback_url, ""  # 都齐了，跳过
 
-    # 负缓存（仅在非 force 时检查）
-    if not force and is_in_negative_cache(wayback_url):
-        return False, wayback_url, "在负缓存里（用 --retry 强制重试）"
 
     if delay > 0:
         time.sleep(delay)
@@ -1524,7 +1411,6 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
     try:
         html_text = fetch_html_text(wayback_url, log=safe_print)
     except Exception as e:
-        maybe_record_negative(wayback_url, e)
         return False, wayback_url, f"HTML 下载失败：{type(e).__name__}: {e}"
 
     # 写 HTML（原始 wayback 快照，媒体路径由前端动态替换）
@@ -1549,10 +1435,6 @@ def _process_one_snapshot(snapshot: tuple[str, str], force: bool,
         json_status = "（页面无 jsonview）"
 
     # 即使 JSON 抽取失败，HTML 已落地视为成功（部分快照只有 HTML 没有 jsonview）
-    if force or not json_exists:
-        # 重试模式或首次：成功就把这个 URL 从负缓存清掉
-        remove_from_negative_cache(wayback_url)
-
     if json_ok:
         return True, wayback_url, ""
     return True, wayback_url, f"HTML OK，{json_status}"
@@ -1662,7 +1544,6 @@ def cmd_fetch_html(args: argparse.Namespace) -> int:
         safe_print(f"[fetch-html] 失败 {len(failed)} 条已实时写入 {FAILED_HTML}")
 
     stop_archive_index_flush_thread_and_save()
-    save_negative_cache()
     safe_print(f"[fetch-html] 完成：成功 {success} / 失败 {len(failed)} / 总计 {len(to_run)}")
     return 0 if not failed else 1
 
@@ -1750,7 +1631,6 @@ def _download_one_image(item: dict, snapshot_ts: str, media_index: MediaIndex,
 
     try:
         size, _used = download_with_candidates(candidates, fpath, log=safe_print,
-                                               skip_negative=not force,
                                                timeout=MEDIA_TIMEOUT_IMAGE)
         media_index.register_image(basename, fname)
         set_status(KIND_IMAGE, url, STATUS_DONE)
@@ -1785,7 +1665,6 @@ def _download_one_video(item: dict, snapshot_ts: str, media_index: MediaIndex,
 
     try:
         size, _used = download_with_candidates(candidates, fpath, log=safe_print,
-                                               skip_negative=not force,
                                                timeout=MEDIA_TIMEOUT_VIDEO)
         media_index.register_video(key, fname)
         set_status(KIND_VIDEO, url, STATUS_DONE)
@@ -1827,7 +1706,6 @@ def _download_one_avatar(item: dict, snapshot_ts: str, media_index: MediaIndex,
 
     try:
         size, _used = download_with_candidates(candidates, fpath, log=safe_print,
-                                               skip_negative=not force,
                                                timeout=MEDIA_TIMEOUT_IMAGE)
         media_index.register_avatar(pid, name, username, fname)
         set_status(KIND_AVATAR, url, STATUS_DONE)
@@ -2046,7 +1924,6 @@ def cmd_fetch_media(args: argparse.Namespace) -> int:
         safe_print(f"[fetch-media] 失败 {len(failed_jsons)} 条已实时写入 {FAILED_MEDIA}")
 
     stop_archive_index_flush_thread_and_save()
-    save_negative_cache()  # 保留旧负缓存（向后兼容，过渡期）
     safe_print(f"[fetch-media] 完成：成功 {len(success_jsons)} / "
                f"失败 {len(failed_jsons)} / 总计 {len(to_run)}")
 
@@ -2229,7 +2106,6 @@ def cmd_fetch_avatars(args: argparse.Namespace) -> int:
         safe_print(f"[fetch-avatars] 失败 {len(failed)} 条已实时写入 {FAILED_AVATAR}")
 
     stop_archive_index_flush_thread_and_save()
-    save_negative_cache()
     safe_print(f"[fetch-avatars] 完成：新下载 {success} / 复用 {reused} / 失败 {len(failed)}")
     return 0 if not failed else 1
 
@@ -4899,7 +4775,6 @@ def main(argv: list[str] | None = None) -> int:
         return args.func(args)
     except KeyboardInterrupt:
         safe_print("\n[中断] 用户取消")
-        save_negative_cache()
         return 130
 
 
