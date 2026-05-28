@@ -142,22 +142,27 @@ HEADERS = {
 }
 HEADERS_TWITTER_REFERER = {**HEADERS, "Referer": "https://twitter.com/"}
 
+# Cloudflare Workers 代理（可选）
+# 设置环境变量 TWITTER_PROXY_BASE=https://your-worker.workers.dev
+# 可让 Actions 通过代理访问 pbs.twimg.com / video.twimg.com
+PROXY_BASE: str = os.environ.get("TWITTER_PROXY_BASE", "").rstrip("/")
+
 # 重试 / 退避
-REQUEST_ATTEMPTS   = 5   # 网络瞬断/超时/SSL 的最大重试次数；4xx 本身不重试
+REQUEST_ATTEMPTS   = 3   # 网络瞬断/超时/SSL 的最大重试次数；4xx 本身不重试
 BACKOFF_BASE       = 0.4
 BACKOFF_JITTER_MAX = 0.2
-MAX_BACKOFF        = 60.0
+MAX_BACKOFF        = 15.0
 
 # 媒体下载 timeout —— 元组形式 (connect_timeout, read_timeout)
 # connect 给 5s（正常 TCP 握手远不需要这么久，超过说明服务器限速/不可达）
-MEDIA_TIMEOUT_IMAGE  = (5, 40)   # 图片/头像
-MEDIA_TIMEOUT_VIDEO  = (5, 60)   # 视频文件可能大
-WAYBACK_HTML_TIMEOUT = (5, 60)   # wayback HTML
+MEDIA_TIMEOUT_IMAGE  = (4, 10)   # 图片/头像
+MEDIA_TIMEOUT_VIDEO  = (4, 12)   # 视频文件可能大
+WAYBACK_HTML_TIMEOUT = (4, 8)   # wayback HTML
 
 # 默认并发与延迟（每个子命令可用 CLI 覆盖）
-DEFAULT_WORKERS_HTML   = 7
-DEFAULT_WORKERS_MEDIA  = 8
-DEFAULT_WORKERS_AVATAR = 4
+DEFAULT_WORKERS_HTML   = 10
+DEFAULT_WORKERS_MEDIA  = 25
+DEFAULT_WORKERS_AVATAR = 20
 DEFAULT_DELAY_HTML     = 0.8
 DEFAULT_DELAY_MEDIA    = 0.3
 DEFAULT_DELAY_AVATAR_RANGE = (0.05, 0.25)
@@ -876,20 +881,35 @@ def download_with_candidates(urls: list[str], filepath: str, log=None,
       SSL / 4xx (除 408/429) → download_stream 不重试，直接抛 → 这里走下一个候选
       408/429/5xx/超时/网络抖动 → download_stream 重试 5 次
 
+    优化：ConnectTimeout 后跳过同一 host 的后续候选（已超时的 host 不可能突然恢复）
     """
     last_exc: Exception | None = None
-    tried = 0
+    timed_out_hosts: set[str] = set()
 
     for i, url in enumerate(urls, 1):
-        tried += 1
+        host = urlparse(url).netloc
+        if host in timed_out_hosts:
+            if log:
+                log(f"  [跳过 {i}/{len(urls)}] {url}（{host} 连接已超时）")
+            continue
+
+        if log and i > 1:
+            log(f"  [候选 {i}/{len(urls)}] {url}")
         try:
-            if log and tried > 1:
-                log(f"  [候选 {i}/{len(urls)}] {url}")
             size = download_stream(url, filepath, log=log, headers=headers, timeout=timeout)
             return size, url
+        except requests.exceptions.ConnectTimeout as e:
+            timed_out_hosts.add(host)
+            last_exc = e
+            if log:
+                log(f"  [✗ 候选 {i}] ConnectTimeout，{host} 后续候选将跳过")
+            continue
         except Exception as e:
             last_exc = e
+            if log:
+                log(f"  [✗ 候选 {i}] {type(e).__name__}: {str(e)[:120]}")
             continue
+
     if last_exc:
         raise last_exc
     raise RuntimeError("候选 URL 列表为空")
@@ -1005,6 +1025,18 @@ def build_pbs_image_variants(source_url: str) -> list[str]:
     return variants
 
 
+def maybe_proxy(url: str) -> str:
+    """若配置了 TWITTER_PROXY_BASE，把 Twitter CDN 直链转为 Workers 代理 URL。
+    Wayback / 其他域名原样返回。"""
+    if not PROXY_BASE:
+        return url
+    parsed = urlparse(url)
+    if parsed.netloc in ("video.twimg.com", "pbs.twimg.com", "abs.twimg.com"):
+        path_qs = parsed.path + (f"?{parsed.query}" if parsed.query else "")
+        return f"{PROXY_BASE}/{parsed.netloc}{path_qs}"
+    return url
+
+
 def build_image_candidate_urls(image_url: str, snapshot_timestamp: str) -> list[str]:
     """图片候选：原站画质回退 → wayback im_/if_/原始 三档回退。"""
     out: list[str] = []
@@ -1016,7 +1048,7 @@ def build_image_candidate_urls(image_url: str, snapshot_timestamp: str) -> list[
             out.append(u)
 
     for v in build_pbs_image_variants(image_url):
-        add(v)
+        add(maybe_proxy(v))
     if snapshot_timestamp:
         add(f"https://web.archive.org/web/{snapshot_timestamp}im_/{image_url}")
         add(f"https://web.archive.org/web/{snapshot_timestamp}if_/{image_url}")
@@ -1034,10 +1066,10 @@ def build_video_candidate_urls(video_url: str, snapshot_timestamp: str) -> list[
             seen.add(u)
             out.append(u)
 
-    add(video_url)
+    add(maybe_proxy(video_url))
     parsed = urlparse(video_url)
     if parsed.netloc.endswith("video.twimg.com") and parsed.query:
-        add(urlunparse(parsed._replace(query="")))
+        add(maybe_proxy(urlunparse(parsed._replace(query=""))))
     if snapshot_timestamp:
         add(f"https://web.archive.org/web/{snapshot_timestamp}im_/{video_url}")
         add(f"https://web.archive.org/web/{snapshot_timestamp}if_/{video_url}")
@@ -1058,9 +1090,9 @@ def build_avatar_candidate_urls(avatar_url: str, snapshot_timestamp: str) -> lis
             out.append(u)
 
     if "_normal." in avatar_url:
-        add(avatar_url.replace("_normal.", "_400x400."))
-        add(avatar_url.replace("_normal.", "_bigger."))
-    add(avatar_url)
+        add(maybe_proxy(avatar_url.replace("_normal.", "_400x400.")))
+        add(maybe_proxy(avatar_url.replace("_normal.", "_bigger.")))
+    add(maybe_proxy(avatar_url))
 
     if snapshot_timestamp:
         if "_normal." in avatar_url:
