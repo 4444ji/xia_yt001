@@ -1,0 +1,204 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {},
+    "author_id": "1944353729039478784",
+    "conversation_id": "2079706233754603635",
+    "created_at": "2026-07-23T06:21:20.000Z",
+    "edit_controls": {
+      "editable_until": "2026-07-23T07:21:20.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2080176416621043779"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 6,
+          "id": "1029723928258785281",
+          "start": 0,
+          "username": "4NK32"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2080176416621043779",
+    "in_reply_to_user_id": "1029723928258785281",
+    "lang": "da",
+    "note_tweet": {
+      "entities": {}
+    },
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "referenced_tweets": [
+      {
+        "id": "2079706233754603635",
+        "type": "replied_to"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "@4NK32 Pandora paradoxxx\nsølips"
+  },
+  "includes": {
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {},
+        "author_id": "1944353729039478784",
+        "conversation_id": "2079706233754603635",
+        "created_at": "2026-07-23T06:21:20.000Z",
+        "edit_controls": {
+          "editable_until": "2026-07-23T07:21:20.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2080176416621043779"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 6,
+              "id": "1029723928258785281",
+              "start": 0,
+              "username": "4NK32"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2080176416621043779",
+        "in_reply_to_user_id": "1029723928258785281",
+        "lang": "da",
+        "note_tweet": {
+          "entities": {}
+        },
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 0
+        },
+        "referenced_tweets": [
+          {
+            "id": "2079706233754603635",
+            "type": "replied_to"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "@4NK32 Pandora paradoxxx\nsølips"
+      },
+      {
+        "article": {},
+        "attachments": {},
+        "author_id": "1029723928258785281",
+        "conversation_id": "2079706233754603635",
+        "created_at": "2026-07-21T23:12:59.000Z",
+        "edit_controls": {
+          "editable_until": "2026-07-22T00:12:59.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2079706233754603635"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 103,
+              "start": 96,
+              "tag": "maimai"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2079706233754603635",
+        "lang": "ja",
+        "note_tweet": {
+          "entities": {}
+        },
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 4,
+          "impression_count": 24525,
+          "like_count": 36,
+          "quote_count": 36,
+          "reply_count": 22,
+          "retweet_count": 16
+        },
+        "reply_settings": "everyone",
+        "text": "【拡散希望】\n\n前回削除曲アンケートは大反響でございましたありがとうございました。\n\n今回は「あなたの好きなmaimaiオリジナル曲」を募集します！！！\n\nリプや引ポスで好きな曲を挙げてネ\n\n#maimai"
+      }
+    ],
+    "users": [
+      {
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "name": "yt夏",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 11,
+          "like_count": 1,
+          "listed_count": 0,
+          "media_count": 1,
+          "tweet_count": 10
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false
+      },
+      {
+        "created_at": "2018-08-15T13:38:10.000Z",
+        "description": "#しみ_あーと\nmaimai(老害/創作譜面) /fgo(燃え尽きた)/遊戯王(たまにやる)/ib/ずとまよ/とかとか。\n8.22 10周年のしみ杯開催へ→@kosh_info",
+        "entities": {
+          "description": {
+            "hashtags": [
+              {
+                "end": 7,
+                "start": 0,
+                "tag": "しみ_あーと"
+              }
+            ],
+            "mentions": [
+              {
+                "end": 88,
+                "start": 78,
+                "username": "kosh_info"
+              }
+            ]
+          }
+        },
+        "id": "1029723928258785281",
+        "name": "Uみず@8/22 しみ杯夏の陣！",
+        "pinned_tweet_id": "2049504125164130757",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2039199659802218496/cdKTNfii_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 727,
+          "following_count": 534,
+          "like_count": 20707,
+          "listed_count": 14,
+          "media_count": 7809,
+          "tweet_count": 64134
+        },
+        "url": "",
+        "username": "4NK32",
+        "verified": true
+      }
+    ]
+  }
+}
