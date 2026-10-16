@@ -1,0 +1,340 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "3_2107835779464699904"
+      ],
+      "media_source_tweet_id": [
+        "2107835785743581408"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "context_annotations": [
+      {
+        "domain": {
+          "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+          "id": "46",
+          "name": "Business Taxonomy"
+        },
+        "entity": {
+          "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+          "id": "1557696940178935808",
+          "name": "Gaming Business"
+        }
+      }
+    ],
+    "conversation_id": "2108183355539988703",
+    "created_at": "2026-10-08T13:10:54.000Z",
+    "display_text_range": [
+      0,
+      83
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-08T14:10:54.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108183355539988703"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 11,
+          "id": "735790780212645888",
+          "start": 3,
+          "username": "SuiLugh"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/kkoFr9L2Tv",
+          "end": 83,
+          "expanded_url": "https://x.com/SuiLugh/status/2107835785743581408/photo/1",
+          "media_key": "3_2107835779464699904",
+          "start": 60,
+          "url": "https://t.co/kkoFr9L2Tv"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108183355539988703",
+    "lang": "ja",
+    "media_metadata": [
+      {
+        "media_key": "3_2107835779464699904"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 449
+    },
+    "referenced_tweets": [
+      {
+        "id": "2107835785743581408",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @SuiLugh: Xaleid◆scopiX Re:MASTER AP！\n\nこれにて終幕！おつかれさまでした！ https://t.co/kkoFr9L2Tv"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 2048,
+        "media_key": "3_2107835779464699904",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUCJeT_aIAASer-.jpg",
+        "width": 1536
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2107835779464699904"
+          ],
+          "media_source_tweet_id": [
+            "2107835785743581408"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+              "id": "1557696940178935808",
+              "name": "Gaming Business"
+            }
+          }
+        ],
+        "conversation_id": "2108183355539988703",
+        "created_at": "2026-10-08T13:10:54.000Z",
+        "display_text_range": [
+          0,
+          83
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-08T14:10:54.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108183355539988703"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 11,
+              "id": "735790780212645888",
+              "start": 3,
+              "username": "SuiLugh"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/kkoFr9L2Tv",
+              "end": 83,
+              "expanded_url": "https://x.com/SuiLugh/status/2107835785743581408/photo/1",
+              "media_key": "3_2107835779464699904",
+              "start": 60,
+              "url": "https://t.co/kkoFr9L2Tv"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108183355539988703",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "3_2107835779464699904"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 449
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107835785743581408",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @SuiLugh: Xaleid◆scopiX Re:MASTER AP！\n\nこれにて終幕！おつかれさまでした！ https://t.co/kkoFr9L2Tv"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2107835779464699904"
+          ]
+        },
+        "author_id": "735790780212645888",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+              "id": "1557696940178935808",
+              "name": "Gaming Business"
+            }
+          }
+        ],
+        "conversation_id": "2107835785743581408",
+        "created_at": "2026-10-07T14:09:47.000Z",
+        "display_text_range": [
+          0,
+          46
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-07T15:09:47.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2107835785743581408"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/kkoFr9L2Tv",
+              "end": 70,
+              "expanded_url": "https://x.com/SuiLugh/status/2107835785743581408/photo/1",
+              "media_key": "3_2107835779464699904",
+              "start": 47,
+              "url": "https://t.co/kkoFr9L2Tv"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107835785743581408",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "3_2107835779464699904"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 31,
+          "impression_count": 59577,
+          "like_count": 2375,
+          "quote_count": 13,
+          "reply_count": 86,
+          "retweet_count": 449
+        },
+        "reply_settings": "everyone",
+        "text": "Xaleid◆scopiX Re:MASTER AP！\n\nこれにて終幕！おつかれさまでした！ https://t.co/kkoFr9L2Tv"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108183355539988703",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 14,
+          "like_count": 78,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 30
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2016-05-26T11:12:47.000Z",
+        "description": "楽しいことと面白いものが大好きな自称キツネฅ おとげー(舞: kop2019優勝 / ウニ: 元レート17 / ボルテ: インペリアル / 弐寺: 十段 ) とうまいものがメイン icon→どわじい(@Takakazu_Ayase)",
+        "entities": {
+          "description": {
+            "mentions": [
+              {
+                "end": 115,
+                "start": 100,
+                "username": "Takakazu_Ayase"
+              }
+            ]
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "youtube.com/channel/UCx3Td…",
+                "end": 23,
+                "expanded_url": "https://www.youtube.com/channel/UCx3TdQYzDTuwDtmLbnM1wOA",
+                "start": 0,
+                "url": "https://t.co/kfzBEOxGNt"
+              }
+            ]
+          }
+        },
+        "id": "735790780212645888",
+        "is_identity_verified": false,
+        "location": "大御所のオコジョ",
+        "most_recent_tweet_id": "2108180181261373681",
+        "name": "すいふー(っ°ㅿ°c)",
+        "pinned_tweet_id": "1306904071526178818",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/735790780212645888/1657578978",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1494343673412145155/oT06T0Nh_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 2162,
+          "following_count": 593,
+          "like_count": 2461,
+          "listed_count": 27,
+          "media_count": 6657,
+          "tweet_count": 80852
+        },
+        "url": "https://t.co/kfzBEOxGNt",
+        "username": "SuiLugh",
+        "verified": false,
+        "verified_type": "none"
+      }
+    ]
+  }
+}

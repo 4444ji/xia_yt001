@@ -1,0 +1,393 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "13_2107148686224723970"
+      ],
+      "media_source_tweet_id": [
+        "2107148831188287864"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "context_annotations": [
+      {
+        "domain": {
+          "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+          "id": "46",
+          "name": "Business Taxonomy"
+        },
+        "entity": {
+          "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+          "id": "1557696940178935808",
+          "name": "Gaming Business"
+        }
+      }
+    ],
+    "conversation_id": "2107821512782929943",
+    "created_at": "2026-10-07T13:13:04.000Z",
+    "display_text_range": [
+      0,
+      64
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-07T14:13:04.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2107821512782929943"
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "end": 40,
+          "start": 33,
+          "tag": "maimai"
+        }
+      ],
+      "mentions": [
+        {
+          "end": 12,
+          "id": "2039323868280635392",
+          "start": 3,
+          "username": "momi_oxo"
+        },
+        {
+          "end": 32,
+          "id": "2051650549335089152",
+          "start": 24,
+          "username": "zuo_yee"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/EysXCDvnPP",
+          "end": 64,
+          "expanded_url": "https://x.com/momi_oxo/status/2107148831188287864/video/1",
+          "media_key": "13_2107148686224723970",
+          "start": 41,
+          "url": "https://t.co/EysXCDvnPP"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2107821512782929943",
+    "lang": "ja",
+    "media_metadata": [
+      {
+        "media_key": "13_2107148686224723970"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 88
+    },
+    "referenced_tweets": [
+      {
+        "id": "2107148831188287864",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @momi_oxo: 一緒にプリズムリズム＠zuo_yee\n#maimai https://t.co/EysXCDvnPP"
+  },
+  "includes": {
+    "media": [
+      {
+        "duration_ms": 179675,
+        "height": 1920,
+        "media_key": "13_2107148686224723970",
+        "preview_image_url": "https://pbs.twimg.com/amplify_video_thumb/2107148686224723970/img/dKPtaiRVRYvS_i-z.jpg",
+        "public_metrics": {
+          "view_count": 5946
+        },
+        "type": "video",
+        "variants": [
+          {
+            "bit_rate": 632000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2107148686224723970/vid/avc1/320x568/wxPrROflpe79JuYS.mp4?tag=14"
+          },
+          {
+            "bit_rate": 950000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2107148686224723970/vid/avc1/480x852/_9Kg2FLwPCeg0xLN.mp4?tag=14"
+          },
+          {
+            "bit_rate": 2176000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2107148686224723970/vid/avc1/720x1280/Wd9TU_gQKi1uDtS6.mp4?tag=14"
+          },
+          {
+            "content_type": "application/x-mpegURL",
+            "url": "https://video.twimg.com/amplify_video/2107148686224723970/pl/sTlV1zviZyMyQ1Fb.m3u8?tag=14&v=cfc"
+          }
+        ],
+        "width": 1080
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2107148686224723970"
+          ],
+          "media_source_tweet_id": [
+            "2107148831188287864"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+              "id": "1557696940178935808",
+              "name": "Gaming Business"
+            }
+          }
+        ],
+        "conversation_id": "2107821512782929943",
+        "created_at": "2026-10-07T13:13:04.000Z",
+        "display_text_range": [
+          0,
+          64
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-07T14:13:04.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2107821512782929943"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 40,
+              "start": 33,
+              "tag": "maimai"
+            }
+          ],
+          "mentions": [
+            {
+              "end": 12,
+              "id": "2039323868280635392",
+              "start": 3,
+              "username": "momi_oxo"
+            },
+            {
+              "end": 32,
+              "id": "2051650549335089152",
+              "start": 24,
+              "username": "zuo_yee"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/EysXCDvnPP",
+              "end": 64,
+              "expanded_url": "https://x.com/momi_oxo/status/2107148831188287864/video/1",
+              "media_key": "13_2107148686224723970",
+              "start": 41,
+              "url": "https://t.co/EysXCDvnPP"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107821512782929943",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "13_2107148686224723970"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 88
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107148831188287864",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @momi_oxo: 一緒にプリズムリズム＠zuo_yee\n#maimai https://t.co/EysXCDvnPP"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2107148686224723970"
+          ]
+        },
+        "author_id": "2039323868280635392",
+        "conversation_id": "2107148831188287864",
+        "created_at": "2026-10-05T16:40:04.000Z",
+        "display_text_range": [
+          0,
+          26
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-05T17:40:04.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2107148831188287864"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 26,
+              "start": 19,
+              "tag": "maimai"
+            }
+          ],
+          "mentions": [
+            {
+              "end": 18,
+              "id": "2051650549335089152",
+              "start": 10,
+              "username": "zuo_yee"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/EysXCDvnPP",
+              "end": 50,
+              "expanded_url": "https://x.com/momi_oxo/status/2107148831188287864/video/1",
+              "media_key": "13_2107148686224723970",
+              "start": 27,
+              "url": "https://t.co/EysXCDvnPP"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107148831188287864",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "13_2107148686224723970"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 123,
+          "impression_count": 13012,
+          "like_count": 784,
+          "quote_count": 5,
+          "reply_count": 2,
+          "retweet_count": 88
+        },
+        "reply_settings": "everyone",
+        "text": "一緒にプリズムリズム＠zuo_yee\n#maimai https://t.co/EysXCDvnPP"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2107821512782929943",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 13,
+          "like_count": 77,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 28
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2026-04-01T12:48:02.000Z",
+        "description": "",
+        "id": "2039323868280635392",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2107148831188287864",
+        "name": "兎侑",
+        "pinned_tweet_id": "2060040447364612478",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/2039323868280635392/1775110992",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2050077365632634880/EgajvLFM_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1618,
+          "following_count": 27,
+          "like_count": 231,
+          "listed_count": 0,
+          "media_count": 52,
+          "tweet_count": 66
+        },
+        "url": "",
+        "username": "momi_oxo",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2026-05-05T13:10:03.000Z",
+        "description": "这里是作业！我喜欢你们= ᳐ᗜ ᴗ ᗜ ᳐= ੭ﾞ\n\n超爱milk喵\n好想有一天可以收集milk所有形态的cosplay",
+        "id": "2051650549335089152",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2107560394923610199",
+        "name": "来点作业",
+        "pinned_tweet_id": "2051656211754610805",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/2051650549335089152/1777986857",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2107561323005722624/ATvh1P_N_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 70,
+          "following_count": 45,
+          "like_count": 31,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 12
+        },
+        "url": "",
+        "username": "zuo_yee",
+        "verified": false,
+        "verified_type": "none"
+      }
+    ]
+  }
+}

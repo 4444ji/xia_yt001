@@ -1,0 +1,451 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {},
+    "author_id": "1944353729039478784",
+    "context_annotations": [
+      {
+        "domain": {
+          "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+          "id": "46",
+          "name": "Business Taxonomy"
+        },
+        "entity": {
+          "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to softwares, apps, communication equipments, hardwares",
+          "id": "1557697333571112960",
+          "name": "Technology Business"
+        }
+      },
+      {
+        "domain": {
+          "description": "Brands and Companies",
+          "id": "47",
+          "name": "Brand"
+        },
+        "entity": {
+          "id": "1884286926779191296",
+          "name": "DeepSeek"
+        }
+      },
+      {
+        "domain": {
+          "description": "A taxonomy of user interests. ",
+          "id": "131",
+          "name": "Unified Twitter Taxonomy"
+        },
+        "entity": {
+          "description": "Technology and computing",
+          "id": "848920371311001600",
+          "name": "Technology"
+        }
+      },
+      {
+        "domain": {
+          "description": "A taxonomy of user interests. ",
+          "id": "131",
+          "name": "Unified Twitter Taxonomy"
+        },
+        "entity": {
+          "description": "Artificial Intelligence",
+          "id": "898262889378619392",
+          "name": "Artificial intelligence"
+        }
+      }
+    ],
+    "conversation_id": "2108198882056552725",
+    "created_at": "2026-10-08T14:12:36.000Z",
+    "display_text_range": [
+      0,
+      140
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-08T15:12:36.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108198882056552725"
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "end": 107,
+          "start": 98,
+          "tag": "deepseek"
+        },
+        {
+          "end": 124,
+          "start": 108,
+          "tag": "deepseekV4flash"
+        },
+        {
+          "end": 129,
+          "start": 125,
+          "tag": "AI娘"
+        },
+        {
+          "end": 134,
+          "start": 130,
+          "tag": "村里人"
+        }
+      ],
+      "mentions": [
+        {
+          "end": 13,
+          "id": "1201433122090311685",
+          "start": 3,
+          "username": "linguanus"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108198882056552725",
+    "lang": "zh",
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 39
+    },
+    "referenced_tweets": [
+      {
+        "id": "2107432499273937086",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @linguanus: 我想起来了，小时候我也玩过这个！\n\n铁锹把子还砸过脑袋，就跟猫和老鼠一样，蹦着蹦着摔了，趴地上还被铁锹把子砸一下😋\n\n沉睡的记忆复苏了属于是，有没有推友也玩过的？\n\n#deepseek #deepseekV4flash #AI娘 #村里人 http…"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 240,
+        "media_key": "16_2107432479439069185",
+        "preview_image_url": "https://pbs.twimg.com/tweet_video_thumb/HT8arKUWIAEUf6x.jpg",
+        "public_metrics": {},
+        "type": "animated_gif",
+        "variants": [
+          {
+            "bit_rate": 0,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/tweet_video/HT8arKUWIAEUf6x.mp4"
+          }
+        ],
+        "width": 240
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {},
+        "author_id": "1944353729039478784",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to softwares, apps, communication equipments, hardwares",
+              "id": "1557697333571112960",
+              "name": "Technology Business"
+            }
+          },
+          {
+            "domain": {
+              "description": "Brands and Companies",
+              "id": "47",
+              "name": "Brand"
+            },
+            "entity": {
+              "id": "1884286926779191296",
+              "name": "DeepSeek"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "description": "Technology and computing",
+              "id": "848920371311001600",
+              "name": "Technology"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "description": "Artificial Intelligence",
+              "id": "898262889378619392",
+              "name": "Artificial intelligence"
+            }
+          }
+        ],
+        "conversation_id": "2108198882056552725",
+        "created_at": "2026-10-08T14:12:36.000Z",
+        "display_text_range": [
+          0,
+          140
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-08T15:12:36.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108198882056552725"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 107,
+              "start": 98,
+              "tag": "deepseek"
+            },
+            {
+              "end": 124,
+              "start": 108,
+              "tag": "deepseekV4flash"
+            },
+            {
+              "end": 129,
+              "start": 125,
+              "tag": "AI娘"
+            },
+            {
+              "end": 134,
+              "start": 130,
+              "tag": "村里人"
+            }
+          ],
+          "mentions": [
+            {
+              "end": 13,
+              "id": "1201433122090311685",
+              "start": 3,
+              "username": "linguanus"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108198882056552725",
+        "lang": "zh",
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 39
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107432499273937086",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @linguanus: 我想起来了，小时候我也玩过这个！\n\n铁锹把子还砸过脑袋，就跟猫和老鼠一样，蹦着蹦着摔了，趴地上还被铁锹把子砸一下😋\n\n沉睡的记忆复苏了属于是，有没有推友也玩过的？\n\n#deepseek #deepseekV4flash #AI娘 #村里人 http…"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "16_2107432479439069185"
+          ]
+        },
+        "author_id": "1201433122090311685",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to softwares, apps, communication equipments, hardwares",
+              "id": "1557697333571112960",
+              "name": "Technology Business"
+            }
+          },
+          {
+            "domain": {
+              "description": "Brands and Companies",
+              "id": "47",
+              "name": "Brand"
+            },
+            "entity": {
+              "id": "1884286926779191296",
+              "name": "DeepSeek"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "description": "Technology and computing",
+              "id": "848920371311001600",
+              "name": "Technology"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "description": "Artificial Intelligence",
+              "id": "898262889378619392",
+              "name": "Artificial intelligence"
+            }
+          }
+        ],
+        "conversation_id": "2107432499273937086",
+        "created_at": "2026-10-06T11:27:16.000Z",
+        "display_text_range": [
+          0,
+          119
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-06T12:27:16.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2107432499273937086"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 92,
+              "start": 83,
+              "tag": "deepseek"
+            },
+            {
+              "end": 109,
+              "start": 93,
+              "tag": "deepseekV4flash"
+            },
+            {
+              "end": 114,
+              "start": 110,
+              "tag": "AI娘"
+            },
+            {
+              "end": 119,
+              "start": 115,
+              "tag": "村里人"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/pUS82iVxZy",
+              "end": 143,
+              "expanded_url": "https://x.com/linguanus/status/2107432499273937086/photo/1",
+              "media_key": "16_2107432479439069185",
+              "start": 120,
+              "url": "https://t.co/pUS82iVxZy"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107432499273937086",
+        "lang": "zh",
+        "media_metadata": [
+          {
+            "media_key": "16_2107432479439069185"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 177,
+          "impression_count": 48406,
+          "like_count": 1209,
+          "quote_count": 1,
+          "reply_count": 43,
+          "retweet_count": 39
+        },
+        "reply_settings": "everyone",
+        "text": "我想起来了，小时候我也玩过这个！\n\n铁锹把子还砸过脑袋，就跟猫和老鼠一样，蹦着蹦着摔了，趴地上还被铁锹把子砸一下😋\n\n沉睡的记忆复苏了属于是，有没有推友也玩过的？\n\n#deepseek #deepseekV4flash #AI娘 #村里人 https://t.co/pUS82iVxZy"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108198882056552725",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 14,
+          "like_count": 92,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 41
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2019-12-02T09:29:23.000Z",
+        "description": "临观之义，或与或求。\nThe essence of Lin (Approach) and Guan (Contemplation) lies in either bestowing or seeking.",
+        "id": "1201433122090311685",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108198426165035430",
+        "name": "Linguan",
+        "pinned_tweet_id": "2107476608198246558",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1201433122090311685/1789718226",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2023230006617608192/1CEPMMMV_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 3328,
+          "following_count": 3383,
+          "like_count": 10651,
+          "listed_count": 1,
+          "media_count": 430,
+          "tweet_count": 3224
+        },
+        "url": "",
+        "username": "linguanus",
+        "verified": true,
+        "verified_type": "blue"
+      }
+    ]
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "13_2107837386235265025"
+      ],
+      "media_source_tweet_id": [
+        "2107838514276737520"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "context_annotations": [
+      {
+        "domain": {
+          "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+          "id": "46",
+          "name": "Business Taxonomy"
+        },
+        "entity": {
+          "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+          "id": "1557696940178935808",
+          "name": "Gaming Business"
+        }
+      }
+    ],
+    "conversation_id": "2108200135436206088",
+    "created_at": "2026-10-08T14:17:35.000Z",
+    "display_text_range": [
+      0,
+      54
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-08T15:17:35.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108200135436206088"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 15,
+          "id": "205565258",
+          "start": 3,
+          "username": "HatsuneMiku"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/HtXVtDl6TK",
+          "end": 54,
+          "expanded_url": "https://x.com/HatsuneMiku/status/2107838514276737520/video/1",
+          "media_key": "13_2107837386235265025",
+          "start": 31,
+          "url": "https://t.co/HtXVtDl6TK"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108200135436206088",
+    "lang": "eu",
+    "media_metadata": [
+      {
+        "media_key": "13_2107837386235265025"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1013
+    },
+    "referenced_tweets": [
+      {
+        "id": "2107838514276737520",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @HatsuneMiku: Matsune Hiku… https://t.co/HtXVtDl6TK"
+  },
+  "includes": {
+    "media": [
+      {
+        "duration_ms": 97500,
+        "height": 640,
+        "media_key": "13_2107837386235265025",
+        "preview_image_url": "https://pbs.twimg.com/amplify_video_thumb/2107837386235265025/img/BWyk9Iu8tpOjI0lu.jpg",
+        "public_metrics": {
+          "view_count": 75322
+        },
+        "type": "video",
+        "variants": [
+          {
+            "bit_rate": 632000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2107837386235265025/vid/avc1/320x568/RbpLSvBYEJElEVPt.mp4"
+          },
+          {
+            "bit_rate": 950000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2107837386235265025/vid/avc1/360x640/irQ4lDr5qkyLLh6K.mp4"
+          },
+          {
+            "content_type": "application/x-mpegURL",
+            "url": "https://video.twimg.com/amplify_video/2107837386235265025/pl/h6hXs5LBLR-QtsjW.m3u8?v=cfc"
+          }
+        ],
+        "width": 360
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2107837386235265025"
+          ],
+          "media_source_tweet_id": [
+            "2107838514276737520"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands",
+              "id": "46",
+              "name": "Business Taxonomy"
+            },
+            "entity": {
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers",
+              "id": "1557696940178935808",
+              "name": "Gaming Business"
+            }
+          }
+        ],
+        "conversation_id": "2108200135436206088",
+        "created_at": "2026-10-08T14:17:35.000Z",
+        "display_text_range": [
+          0,
+          54
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-08T15:17:35.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108200135436206088"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 15,
+              "id": "205565258",
+              "start": 3,
+              "username": "HatsuneMiku"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/HtXVtDl6TK",
+              "end": 54,
+              "expanded_url": "https://x.com/HatsuneMiku/status/2107838514276737520/video/1",
+              "media_key": "13_2107837386235265025",
+              "start": 31,
+              "url": "https://t.co/HtXVtDl6TK"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108200135436206088",
+        "lang": "eu",
+        "media_metadata": [
+          {
+            "media_key": "13_2107837386235265025"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 1013
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107838514276737520",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @HatsuneMiku: Matsune Hiku… https://t.co/HtXVtDl6TK"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2107837386235265025"
+          ]
+        },
+        "author_id": "205565258",
+        "conversation_id": "2107838514276737520",
+        "created_at": "2026-10-07T14:20:38.000Z",
+        "display_text_range": [
+          0,
+          13
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-07T15:20:38.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2107838514276737520"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/HtXVtDl6TK",
+              "end": 37,
+              "expanded_url": "https://x.com/HatsuneMiku/status/2107838514276737520/video/1",
+              "media_key": "13_2107837386235265025",
+              "start": 14,
+              "url": "https://t.co/HtXVtDl6TK"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107838514276737520",
+        "lang": "eu",
+        "media_metadata": [
+          {
+            "media_key": "13_2107837386235265025"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 898,
+          "impression_count": 166633,
+          "like_count": 7409,
+          "quote_count": 83,
+          "reply_count": 32,
+          "retweet_count": 1013
+        },
+        "reply_settings": "everyone",
+        "text": "Matsune Hiku… https://t.co/HtXVtDl6TK"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108200135436206088",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 14,
+          "like_count": 96,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 43
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2010-10-21T04:24:33.000Z",
+        "description": "Daily Miku & Vocaloid Content! \nFan Account (Not Affiliated with Crypton Future Media!)\n(Ran by: @xtc_addict)",
+        "entities": {
+          "description": {
+            "mentions": [
+              {
+                "end": 108,
+                "start": 97,
+                "username": "xtc_addict"
+              }
+            ]
+          }
+        },
+        "id": "205565258",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108193842327384191",
+        "name": "Miku",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2041367547669254144/RQzxdjzd_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 486035,
+          "following_count": 18,
+          "like_count": 3789,
+          "listed_count": 158,
+          "media_count": 1207,
+          "tweet_count": 1244
+        },
+        "url": "",
+        "username": "HatsuneMiku",
+        "verified": true,
+        "verified_type": "blue"
+      }
+    ]
+  }
+}

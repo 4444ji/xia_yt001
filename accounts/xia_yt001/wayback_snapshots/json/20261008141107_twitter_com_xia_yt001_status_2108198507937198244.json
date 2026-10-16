@@ -1,0 +1,275 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "3_2107765106121887746"
+      ],
+      "media_source_tweet_id": [
+        "2107765112216097156"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "conversation_id": "2108198507937198244",
+    "created_at": "2026-10-08T14:11:07.000Z",
+    "display_text_range": [
+      0,
+      60
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-08T15:11:07.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108198507937198244"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 19,
+          "id": "1775406438216814592",
+          "start": 3,
+          "username": "zhngkn414984690"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/CXLQlqYEtw",
+          "end": 60,
+          "expanded_url": "https://x.com/zhngkn414984690/status/2107765112216097156/photo/1",
+          "media_key": "3_2107765106121887746",
+          "start": 37,
+          "url": "https://t.co/CXLQlqYEtw"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108198507937198244",
+    "lang": "zh",
+    "media_metadata": [
+      {
+        "media_key": "3_2107765106121887746"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 134
+    },
+    "referenced_tweets": [
+      {
+        "id": "2107765112216097156",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @zhngkn414984690: 小众爱好是把电脑开着然后玩手机 https://t.co/CXLQlqYEtw"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 1505,
+        "media_key": "3_2107765106121887746",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUBJMlRb0AIogzr.jpg",
+        "width": 1290
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2107765106121887746"
+          ],
+          "media_source_tweet_id": [
+            "2107765112216097156"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "conversation_id": "2108198507937198244",
+        "created_at": "2026-10-08T14:11:07.000Z",
+        "display_text_range": [
+          0,
+          60
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-08T15:11:07.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108198507937198244"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 19,
+              "id": "1775406438216814592",
+              "start": 3,
+              "username": "zhngkn414984690"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/CXLQlqYEtw",
+              "end": 60,
+              "expanded_url": "https://x.com/zhngkn414984690/status/2107765112216097156/photo/1",
+              "media_key": "3_2107765106121887746",
+              "start": 37,
+              "url": "https://t.co/CXLQlqYEtw"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108198507937198244",
+        "lang": "zh",
+        "media_metadata": [
+          {
+            "media_key": "3_2107765106121887746"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 134
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107765112216097156",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @zhngkn414984690: 小众爱好是把电脑开着然后玩手机 https://t.co/CXLQlqYEtw"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2107765106121887746"
+          ]
+        },
+        "author_id": "1775406438216814592",
+        "conversation_id": "2107765112216097156",
+        "created_at": "2026-10-07T09:28:57.000Z",
+        "display_text_range": [
+          0,
+          15
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-07T10:28:57.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2107765112216097156"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/CXLQlqYEtw",
+              "end": 39,
+              "expanded_url": "https://x.com/zhngkn414984690/status/2107765112216097156/photo/1",
+              "media_key": "3_2107765106121887746",
+              "start": 16,
+              "url": "https://t.co/CXLQlqYEtw"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2107765112216097156",
+        "lang": "zh",
+        "media_metadata": [
+          {
+            "media_key": "3_2107765106121887746"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 38,
+          "impression_count": 70752,
+          "like_count": 3197,
+          "quote_count": 19,
+          "reply_count": 529,
+          "retweet_count": 134
+        },
+        "reply_settings": "everyone",
+        "text": "小众爱好是把电脑开着然后玩手机 https://t.co/CXLQlqYEtw"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108198507937198244",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 0,
+          "following_count": 14,
+          "like_count": 89,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 37
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2024-04-03T06:14:29.000Z",
+        "description": "一个普通人",
+        "id": "1775406438216814592",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108198475662069946",
+        "name": "张卡",
+        "pinned_tweet_id": "1775552914968469531",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2093931919813799936/5k_bPsCm_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 6600,
+          "following_count": 6862,
+          "like_count": 704,
+          "listed_count": 3,
+          "media_count": 304,
+          "tweet_count": 10578
+        },
+        "url": "",
+        "username": "zhngkn414984690",
+        "verified": true,
+        "verified_type": "blue"
+      }
+    ]
+  }
+}

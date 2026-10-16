@@ -1,0 +1,252 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {},
+    "author_id": "1944353729039478784",
+    "conversation_id": "2108461769857655251",
+    "created_at": "2026-10-10T10:37:28.000Z",
+    "display_text_range": [
+      8,
+      15
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-10T11:37:28.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108869517623591422"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 7,
+          "id": "776075916803923968",
+          "start": 0,
+          "username": "rn_dtm"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108869517623591422",
+    "in_reply_to_user_id": "776075916803923968",
+    "lang": "zh",
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0
+    },
+    "referenced_tweets": [
+      {
+        "id": "2108461769857655251",
+        "type": "replied_to"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "@rn_dtm 你还好意思（）"
+  },
+  "includes": {
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {},
+        "author_id": "1944353729039478784",
+        "conversation_id": "2108461769857655251",
+        "created_at": "2026-10-10T10:37:28.000Z",
+        "display_text_range": [
+          8,
+          15
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-10T11:37:28.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108869517623591422"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 7,
+              "id": "776075916803923968",
+              "start": 0,
+              "username": "rn_dtm"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108869517623591422",
+        "in_reply_to_user_id": "776075916803923968",
+        "lang": "zh",
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 0
+        },
+        "referenced_tweets": [
+          {
+            "id": "2108461769857655251",
+            "type": "replied_to"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "@rn_dtm 你还好意思（）"
+      },
+      {
+        "article": {},
+        "attachments": {},
+        "author_id": "776075916803923968",
+        "conversation_id": "2108461769857655251",
+        "created_at": "2026-10-09T07:37:13.000Z",
+        "display_text_range": [
+          0,
+          10
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-09T08:37:13.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2108461769857655251"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "x.com/shikoch1n/stat…",
+              "end": 34,
+              "expanded_url": "https://twitter.com/shikoch1n/status/2107863539734192204",
+              "start": 11,
+              "url": "https://t.co/aC3I4ZmftT"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108461769857655251",
+        "lang": "ja",
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 67,
+          "impression_count": 37071,
+          "like_count": 1162,
+          "quote_count": 1,
+          "reply_count": 17,
+          "retweet_count": 77
+        },
+        "referenced_tweets": [
+          {
+            "id": "2107863539734192204",
+            "type": "quoted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "1/3が自分の曲で草 https://t.co/aC3I4ZmftT"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108869517623591422",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1,
+          "following_count": 14,
+          "like_count": 96,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 44
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2016-09-14T15:11:32.000Z",
+        "description": "タイ出身兼業マルチクリエーター兼見習い教師\nmaimai『Amereistr』等\nご連絡はメールまで（仕事・ご依頼関連のみ）\n\n修士課程履修中（日本語学・漢字）\n\n色々お手伝いしてます @Phigros_PGS\ni: @hyou_1027\nh: @cateameow",
+        "entities": {
+          "description": {
+            "mentions": [
+              {
+                "end": 105,
+                "start": 93,
+                "username": "Phigros_PGS"
+              },
+              {
+                "end": 119,
+                "start": 109,
+                "username": "hyou_1027"
+              },
+              {
+                "end": 133,
+                "start": 123,
+                "username": "cateameow"
+              }
+            ]
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "yuugenp.xyz",
+                "end": 23,
+                "expanded_url": "https://yuugenp.xyz",
+                "start": 0,
+                "url": "https://t.co/eJX1YOXfIi"
+              }
+            ]
+          }
+        },
+        "id": "776075916803923968",
+        "is_identity_verified": false,
+        "location": "contact@yuugenp.xyz",
+        "most_recent_tweet_id": "2108804692818170222",
+        "name": "rN",
+        "pinned_tweet_id": "2106267269844365412",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/776075916803923968/1654622145",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2103532281998827520/Wh7R56Ye_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 13170,
+          "following_count": 562,
+          "like_count": 7505,
+          "listed_count": 37,
+          "media_count": 1955,
+          "tweet_count": 13139
+        },
+        "url": "https://t.co/eJX1YOXfIi",
+        "username": "rn_dtm",
+        "verified": false,
+        "verified_type": "none"
+      }
+    ]
+  }
+}

@@ -1,0 +1,559 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "3_2108711248099700736",
+        "3_2108711248317841408",
+        "3_2108711248091336704",
+        "3_2108711248099770368"
+      ],
+      "media_source_tweet_id": [
+        "2108769495930036531",
+        "2108769495930036531",
+        "2108769495930036531",
+        "2108769495930036531"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "context_annotations": [
+      {
+        "domain": {
+          "description": "A video game like Overwatch",
+          "id": "71",
+          "name": "Video Game"
+        },
+        "entity": {
+          "id": "1370143648776523779",
+          "name": "Arcaea"
+        }
+      },
+      {
+        "domain": {
+          "description": "A taxonomy of user interests. ",
+          "id": "131",
+          "name": "Unified Twitter Taxonomy"
+        },
+        "entity": {
+          "id": "1359647921210159105",
+          "name": "Rhythm games"
+        }
+      },
+      {
+        "domain": {
+          "description": "A taxonomy of user interests. ",
+          "id": "131",
+          "name": "Unified Twitter Taxonomy"
+        },
+        "entity": {
+          "id": "1370143648776523779",
+          "name": "Arcaea"
+        }
+      }
+    ],
+    "conversation_id": "2108872969267347561",
+    "created_at": "2026-10-10T10:51:11.000Z",
+    "display_text_range": [
+      0,
+      78
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-10T11:51:11.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2108872969267347561"
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "end": 54,
+          "start": 43,
+          "tag": "arcaea_art"
+        }
+      ],
+      "mentions": [
+        {
+          "end": 15,
+          "id": "4855461807",
+          "start": 3,
+          "username": "Aurilyus124"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/8Yn2QNMsVB",
+          "end": 78,
+          "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+          "media_key": "3_2108711248099700736",
+          "start": 55,
+          "url": "https://t.co/8Yn2QNMsVB"
+        },
+        {
+          "display_url": "pic.x.com/8Yn2QNMsVB",
+          "end": 78,
+          "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+          "media_key": "3_2108711248317841408",
+          "start": 55,
+          "url": "https://t.co/8Yn2QNMsVB"
+        },
+        {
+          "display_url": "pic.x.com/8Yn2QNMsVB",
+          "end": 78,
+          "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+          "media_key": "3_2108711248091336704",
+          "start": 55,
+          "url": "https://t.co/8Yn2QNMsVB"
+        },
+        {
+          "display_url": "pic.x.com/8Yn2QNMsVB",
+          "end": 78,
+          "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+          "media_key": "3_2108711248099770368",
+          "start": 55,
+          "url": "https://t.co/8Yn2QNMsVB"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2108872969267347561",
+    "lang": "en",
+    "media_metadata": [
+      {
+        "media_key": "3_2108711248099700736"
+      },
+      {
+        "media_key": "3_2108711248317841408"
+      },
+      {
+        "media_key": "3_2108711248091336704"
+      },
+      {
+        "media_key": "3_2108711248099770368"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 144
+    },
+    "referenced_tweets": [
+      {
+        "id": "2108769495930036531",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @Aurilyus124: to prove my \"love\" worthy\n#arcaea_art https://t.co/8Yn2QNMsVB"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 1200,
+        "media_key": "3_2108711248099700736",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUOltSzacAAkL4M.jpg",
+        "width": 900
+      },
+      {
+        "height": 1200,
+        "media_key": "3_2108711248317841408",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUOltTnbAAAxTMT.jpg",
+        "width": 900
+      },
+      {
+        "height": 1200,
+        "media_key": "3_2108711248091336704",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUOltSxa0AAMeF6.jpg",
+        "width": 900
+      },
+      {
+        "height": 1200,
+        "media_key": "3_2108711248099770368",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HUOltSzbgAA8h_I.jpg",
+        "width": 900
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2108711248099700736",
+            "3_2108711248317841408",
+            "3_2108711248091336704",
+            "3_2108711248099770368"
+          ],
+          "media_source_tweet_id": [
+            "2108769495930036531",
+            "2108769495930036531",
+            "2108769495930036531",
+            "2108769495930036531"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "A video game like Overwatch",
+              "id": "71",
+              "name": "Video Game"
+            },
+            "entity": {
+              "id": "1370143648776523779",
+              "name": "Arcaea"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "id": "1359647921210159105",
+              "name": "Rhythm games"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "id": "1370143648776523779",
+              "name": "Arcaea"
+            }
+          }
+        ],
+        "conversation_id": "2108872969267347561",
+        "created_at": "2026-10-10T10:51:11.000Z",
+        "display_text_range": [
+          0,
+          78
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-10T11:51:11.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2108872969267347561"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 54,
+              "start": 43,
+              "tag": "arcaea_art"
+            }
+          ],
+          "mentions": [
+            {
+              "end": 15,
+              "id": "4855461807",
+              "start": 3,
+              "username": "Aurilyus124"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 78,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248099700736",
+              "start": 55,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 78,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248317841408",
+              "start": 55,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 78,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248091336704",
+              "start": 55,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 78,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248099770368",
+              "start": 55,
+              "url": "https://t.co/8Yn2QNMsVB"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108872969267347561",
+        "lang": "en",
+        "media_metadata": [
+          {
+            "media_key": "3_2108711248099700736"
+          },
+          {
+            "media_key": "3_2108711248317841408"
+          },
+          {
+            "media_key": "3_2108711248091336704"
+          },
+          {
+            "media_key": "3_2108711248099770368"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 144
+        },
+        "referenced_tweets": [
+          {
+            "id": "2108769495930036531",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @Aurilyus124: to prove my \"love\" worthy\n#arcaea_art https://t.co/8Yn2QNMsVB"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2108711248099700736",
+            "3_2108711248317841408",
+            "3_2108711248091336704",
+            "3_2108711248099770368"
+          ]
+        },
+        "author_id": "4855461807",
+        "context_annotations": [
+          {
+            "domain": {
+              "description": "A video game like Overwatch",
+              "id": "71",
+              "name": "Video Game"
+            },
+            "entity": {
+              "id": "1370143648776523779",
+              "name": "Arcaea"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "id": "1359647921210159105",
+              "name": "Rhythm games"
+            }
+          },
+          {
+            "domain": {
+              "description": "A taxonomy of user interests. ",
+              "id": "131",
+              "name": "Unified Twitter Taxonomy"
+            },
+            "entity": {
+              "id": "1370143648776523779",
+              "name": "Arcaea"
+            }
+          }
+        ],
+        "conversation_id": "2108769495930036531",
+        "created_at": "2026-10-10T04:00:01.000Z",
+        "display_text_range": [
+          0,
+          37
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-10T05:00:01.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2108769495930036531"
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "end": 37,
+              "start": 26,
+              "tag": "arcaea_art"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 61,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248099700736",
+              "start": 38,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 61,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248317841408",
+              "start": 38,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 61,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248091336704",
+              "start": 38,
+              "url": "https://t.co/8Yn2QNMsVB"
+            },
+            {
+              "display_url": "pic.x.com/8Yn2QNMsVB",
+              "end": 61,
+              "expanded_url": "https://x.com/Aurilyus124/status/2108769495930036531/photo/1",
+              "media_key": "3_2108711248099770368",
+              "start": 38,
+              "url": "https://t.co/8Yn2QNMsVB"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2108769495930036531",
+        "lang": "en",
+        "media_metadata": [
+          {
+            "media_key": "3_2108711248099700736"
+          },
+          {
+            "media_key": "3_2108711248317841408"
+          },
+          {
+            "media_key": "3_2108711248091336704"
+          },
+          {
+            "media_key": "3_2108711248099770368"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 69,
+          "impression_count": 7662,
+          "like_count": 673,
+          "quote_count": 1,
+          "reply_count": 2,
+          "retweet_count": 144
+        },
+        "reply_settings": "everyone",
+        "text": "to prove my \"love\" worthy\n#arcaea_art https://t.co/8Yn2QNMsVB"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108872969267347561",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1,
+          "following_count": 27,
+          "like_count": 106,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 48
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2016-01-28T00:31:18.000Z",
+        "description": "✧ illustration, animation\n✧ do not use or reupload my work (ask me!)\n✧ portfolio: https://t.co/jggipJdzy8\n✧ cms: https://t.co/ZlxSut5YHI",
+        "entities": {
+          "description": {
+            "urls": [
+              {
+                "display_url": "aurilyus.carrd.co",
+                "end": 105,
+                "expanded_url": "https://aurilyus.carrd.co/",
+                "start": 82,
+                "url": "https://t.co/jggipJdzy8"
+              },
+              {
+                "display_url": "vgen.co/Aurilyus124",
+                "end": 136,
+                "expanded_url": "https://vgen.co/Aurilyus124",
+                "start": 113,
+                "url": "https://t.co/ZlxSut5YHI"
+              }
+            ]
+          }
+        },
+        "id": "4855461807",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2108845001178513904",
+        "name": "Aurilyus ✦ cms open!",
+        "pinned_tweet_id": "2101753329441456633",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/4855461807/1785979122",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2087347985164402688/0Z5CVnU6_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1567,
+          "following_count": 665,
+          "like_count": 191536,
+          "listed_count": 4,
+          "media_count": 1611,
+          "tweet_count": 14755
+        },
+        "url": "",
+        "username": "Aurilyus124",
+        "verified": false,
+        "verified_type": "none"
+      }
+    ]
+  }
+}
