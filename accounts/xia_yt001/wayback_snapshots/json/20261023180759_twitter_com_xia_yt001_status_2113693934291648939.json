@@ -1,0 +1,323 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "13_2113629749658767360"
+      ],
+      "media_source_tweet_id": [
+        "2113629765915812267"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "conversation_id": "2113693934291648939",
+    "created_at": "2026-10-23T18:07:59.000Z",
+    "display_text_range": [
+      0,
+      45
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-23T19:07:59.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2113693934291648939"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 10,
+          "id": "37394070",
+          "start": 3,
+          "username": "ryu_un"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/HFxJqLX7ho",
+          "end": 45,
+          "expanded_url": "https://x.com/ryu_un/status/2113629765915812267/video/1",
+          "media_key": "13_2113629749658767360",
+          "start": 22,
+          "url": "https://t.co/HFxJqLX7ho"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2113693934291648939",
+    "lang": "ja",
+    "media_metadata": [
+      {
+        "media_key": "13_2113629749658767360"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 33
+    },
+    "referenced_tweets": [
+      {
+        "id": "2113629765915812267",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @ryu_un: アリスアリスアリス https://t.co/HFxJqLX7ho"
+  },
+  "includes": {
+    "media": [
+      {
+        "duration_ms": 4735,
+        "height": 720,
+        "media_key": "13_2113629749658767360",
+        "preview_image_url": "https://pbs.twimg.com/amplify_video_thumb/2113629749658767360/img/uXCl9t5bn178MpAM.jpg",
+        "public_metrics": {
+          "view_count": 1321
+        },
+        "type": "video",
+        "variants": [
+          {
+            "bit_rate": 256000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2113629749658767360/vid/avc1/480x270/YfBPbuymeuP0XpTt.mp4"
+          },
+          {
+            "bit_rate": 832000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2113629749658767360/vid/avc1/640x360/sxBKjf-Wrn5P9GSW.mp4"
+          },
+          {
+            "bit_rate": 2176000,
+            "content_type": "video/mp4",
+            "url": "https://video.twimg.com/amplify_video/2113629749658767360/vid/avc1/1280x720/LmyODuuV7L4BJYtp.mp4"
+          },
+          {
+            "content_type": "application/x-mpegURL",
+            "url": "https://video.twimg.com/amplify_video/2113629749658767360/pl/yVwChxSdujKamLCu.m3u8"
+          }
+        ],
+        "width": 1280
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2113629749658767360"
+          ],
+          "media_source_tweet_id": [
+            "2113629765915812267"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "conversation_id": "2113693934291648939",
+        "created_at": "2026-10-23T18:07:59.000Z",
+        "display_text_range": [
+          0,
+          45
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T19:07:59.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2113693934291648939"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 10,
+              "id": "37394070",
+              "start": 3,
+              "username": "ryu_un"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/HFxJqLX7ho",
+              "end": 45,
+              "expanded_url": "https://x.com/ryu_un/status/2113629765915812267/video/1",
+              "media_key": "13_2113629749658767360",
+              "start": 22,
+              "url": "https://t.co/HFxJqLX7ho"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113693934291648939",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "13_2113629749658767360"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 33
+        },
+        "referenced_tweets": [
+          {
+            "id": "2113629765915812267",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @ryu_un: アリスアリスアリス https://t.co/HFxJqLX7ho"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "13_2113629749658767360"
+          ]
+        },
+        "author_id": "37394070",
+        "conversation_id": "2113629765915812267",
+        "created_at": "2026-10-23T13:53:00.000Z",
+        "display_text_range": [
+          0,
+          9
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T14:53:00.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2113629765915812267"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/HFxJqLX7ho",
+              "end": 33,
+              "expanded_url": "https://x.com/ryu_un/status/2113629765915812267/video/1",
+              "media_key": "13_2113629749658767360",
+              "start": 10,
+              "url": "https://t.co/HFxJqLX7ho"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113629765915812267",
+        "lang": "ja",
+        "media_metadata": [
+          {
+            "media_key": "13_2113629749658767360"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 28,
+          "impression_count": 3011,
+          "like_count": 222,
+          "quote_count": 1,
+          "reply_count": 3,
+          "retweet_count": 33
+        },
+        "reply_settings": "everyone",
+        "text": "アリスアリスアリス https://t.co/HFxJqLX7ho"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2113693934291648939",
+        "name": "夏yt",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1,
+          "following_count": 28,
+          "like_count": 133,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 62
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2009-05-03T09:38:16.000Z",
+        "description": "特撮、アニメ、映画、プラモ、フィギュア、ゲーム、舞台など雑多アカウント。実況多め。🐥が好き。妃夜娘組/ブルアカ、NIKKEやってます。プラモ、小説、ぬいなどで創作活動中。たまに小説や怪文書を書きます。【BOOTH】https://t.co/cijCXfynSq",
+        "entities": {
+          "description": {
+            "urls": [
+              {
+                "display_url": "ririthia.booth.pm",
+                "end": 130,
+                "expanded_url": "https://ririthia.booth.pm/",
+                "start": 107,
+                "url": "https://t.co/cijCXfynSq"
+              }
+            ]
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "pixiv.net/users/21950",
+                "end": 23,
+                "expanded_url": "https://www.pixiv.net/users/21950",
+                "start": 0,
+                "url": "https://t.co/KdxWtVn9fj"
+              }
+            ]
+          }
+        },
+        "id": "37394070",
+        "is_identity_verified": false,
+        "location": "コユキ区黒崎2－8－8　ひよこビル4階",
+        "most_recent_tweet_id": "2113646178537742761",
+        "name": "りゅーうん🐥🕊️",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/37394070/1757926408",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2027214022421127168/opi-KRg6_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 3407,
+          "following_count": 2368,
+          "like_count": 110758,
+          "listed_count": 63,
+          "media_count": 29139,
+          "tweet_count": 504982
+        },
+        "url": "https://t.co/KdxWtVn9fj",
+        "username": "ryu_un",
+        "verified": false,
+        "verified_type": "none"
+      }
+    ]
+  }
+}
