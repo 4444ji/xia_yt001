@@ -1,0 +1,276 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "3_2113554010225704960"
+      ],
+      "media_source_tweet_id": [
+        "2113554015107928564"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "conversation_id": "2113679591948894327",
+    "created_at": "2026-10-23T17:10:59.000Z",
+    "display_text_range": [
+      0,
+      40
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-23T18:10:59.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2113679591948894327"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 11,
+          "id": "370743613",
+          "start": 3,
+          "username": "guy_kun"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/Mvxmq4xuoG",
+          "end": 40,
+          "expanded_url": "https://x.com/guy_kun/status/2113554015107928564/photo/1",
+          "media_key": "3_2113554010225704960",
+          "start": 17,
+          "url": "https://t.co/Mvxmq4xuoG"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2113679591948894327",
+    "lang": "und",
+    "media_metadata": [
+      {
+        "media_key": "3_2113554010225704960"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1
+    },
+    "referenced_tweets": [
+      {
+        "id": "2113554015107928564",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "everyone",
+    "text": "RT @guy_kun: mng https://t.co/Mvxmq4xuoG"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 1536,
+        "media_key": "3_2113554010225704960",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HVTaLJkbAAA5J9G.jpg",
+        "width": 2048
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2113554010225704960"
+          ],
+          "media_source_tweet_id": [
+            "2113554015107928564"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "conversation_id": "2113679591948894327",
+        "created_at": "2026-10-23T17:10:59.000Z",
+        "display_text_range": [
+          0,
+          40
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T18:10:59.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2113679591948894327"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 11,
+              "id": "370743613",
+              "start": 3,
+              "username": "guy_kun"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/Mvxmq4xuoG",
+              "end": 40,
+              "expanded_url": "https://x.com/guy_kun/status/2113554015107928564/photo/1",
+              "media_key": "3_2113554010225704960",
+              "start": 17,
+              "url": "https://t.co/Mvxmq4xuoG"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113679591948894327",
+        "lang": "und",
+        "media_metadata": [
+          {
+            "media_key": "3_2113554010225704960"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 1
+        },
+        "referenced_tweets": [
+          {
+            "id": "2113554015107928564",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "everyone",
+        "text": "RT @guy_kun: mng https://t.co/Mvxmq4xuoG"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2113554010225704960"
+          ]
+        },
+        "author_id": "370743613",
+        "conversation_id": "2113554015107928564",
+        "created_at": "2026-10-23T08:51:59.000Z",
+        "display_text_range": [
+          0,
+          3
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T09:51:59.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2113554015107928564"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/Mvxmq4xuoG",
+              "end": 27,
+              "expanded_url": "https://x.com/guy_kun/status/2113554015107928564/photo/1",
+              "media_key": "3_2113554010225704960",
+              "start": 4,
+              "url": "https://t.co/Mvxmq4xuoG"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113554015107928564",
+        "lang": "und",
+        "media_metadata": [
+          {
+            "media_key": "3_2113554010225704960"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 6,
+          "impression_count": 8306,
+          "like_count": 309,
+          "quote_count": 1,
+          "reply_count": 17,
+          "retweet_count": 1
+        },
+        "reply_settings": "everyone",
+        "text": "mng https://t.co/Mvxmq4xuoG"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2113679591948894327",
+        "name": "yt夏",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1,
+          "following_count": 28,
+          "like_count": 130,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 60
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2011-09-09T15:14:21.000Z",
+        "description": "Director ・ Producer ・ Art Director・等 ＠ lowiro.",
+        "id": "370743613",
+        "is_identity_verified": false,
+        "location": "日本 東京",
+        "most_recent_tweet_id": "2113650774861660432",
+        "name": "Guy",
+        "pinned_tweet_id": "2008088034181595239",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/370743613/1763868138",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1802341836100415488/8murnzH__normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 28390,
+          "following_count": 1169,
+          "like_count": 58311,
+          "listed_count": 51,
+          "media_count": 6310,
+          "tweet_count": 43863
+        },
+        "url": "",
+        "username": "guy_kun",
+        "verified": true,
+        "verified_type": "blue"
+      }
+    ]
+  }
+}

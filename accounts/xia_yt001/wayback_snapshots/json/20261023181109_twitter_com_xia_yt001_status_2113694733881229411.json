@@ -1,0 +1,302 @@
+{
+  "data": {
+    "article": {},
+    "attachments": {
+      "media_keys": [
+        "3_2113573943072215040"
+      ],
+      "media_source_tweet_id": [
+        "2113573953490894868"
+      ]
+    },
+    "author_id": "1944353729039478784",
+    "conversation_id": "2113694733881229411",
+    "created_at": "2026-10-23T18:11:09.000Z",
+    "display_text_range": [
+      0,
+      88
+    ],
+    "edit_controls": {
+      "editable_until": "2026-10-23T19:11:09.000Z",
+      "edits_remaining": 5,
+      "is_edit_eligible": false
+    },
+    "edit_history_tweet_ids": [
+      "2113694733881229411"
+    ],
+    "entities": {
+      "mentions": [
+        {
+          "end": 19,
+          "id": "163073745",
+          "start": 3,
+          "username": "kemalcankaratas"
+        }
+      ],
+      "urls": [
+        {
+          "display_url": "pic.x.com/EjoSZyleBd",
+          "end": 88,
+          "expanded_url": "https://x.com/kemalcankaratas/status/2113573953490894868/photo/1",
+          "media_key": "3_2113573943072215040",
+          "start": 65,
+          "url": "https://t.co/EjoSZyleBd"
+        }
+      ]
+    },
+    "geo": {},
+    "id": "2113694733881229411",
+    "lang": "tr",
+    "media_metadata": [
+      {
+        "media_key": "3_2113573943072215040"
+      }
+    ],
+    "note_tweet": {
+      "entities": {}
+    },
+    "paid_partnership": false,
+    "possibly_sensitive": false,
+    "public_metrics": {
+      "bookmark_count": 0,
+      "impression_count": 0,
+      "like_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 87
+    },
+    "referenced_tweets": [
+      {
+        "id": "2113573953490894868",
+        "type": "retweeted"
+      }
+    ],
+    "reply_settings": "following",
+    "text": "RT @kemalcankaratas: Arkadaşlar babam kanseri yendi çok şükür❤️🙏 https://t.co/EjoSZyleBd"
+  },
+  "includes": {
+    "media": [
+      {
+        "height": 2999,
+        "media_key": "3_2113573943072215040",
+        "public_metrics": {},
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HVTsTZNXUAAtVaG.jpg",
+        "width": 4000
+      }
+    ],
+    "tweets": [
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2113573943072215040"
+          ],
+          "media_source_tweet_id": [
+            "2113573953490894868"
+          ]
+        },
+        "author_id": "1944353729039478784",
+        "conversation_id": "2113694733881229411",
+        "created_at": "2026-10-23T18:11:09.000Z",
+        "display_text_range": [
+          0,
+          88
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T19:11:09.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": false
+        },
+        "edit_history_tweet_ids": [
+          "2113694733881229411"
+        ],
+        "entities": {
+          "mentions": [
+            {
+              "end": 19,
+              "id": "163073745",
+              "start": 3,
+              "username": "kemalcankaratas"
+            }
+          ],
+          "urls": [
+            {
+              "display_url": "pic.x.com/EjoSZyleBd",
+              "end": 88,
+              "expanded_url": "https://x.com/kemalcankaratas/status/2113573953490894868/photo/1",
+              "media_key": "3_2113573943072215040",
+              "start": 65,
+              "url": "https://t.co/EjoSZyleBd"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113694733881229411",
+        "lang": "tr",
+        "media_metadata": [
+          {
+            "media_key": "3_2113573943072215040"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 0,
+          "impression_count": 0,
+          "like_count": 0,
+          "quote_count": 0,
+          "reply_count": 0,
+          "retweet_count": 87
+        },
+        "referenced_tweets": [
+          {
+            "id": "2113573953490894868",
+            "type": "retweeted"
+          }
+        ],
+        "reply_settings": "following",
+        "text": "RT @kemalcankaratas: Arkadaşlar babam kanseri yendi çok şükür❤️🙏 https://t.co/EjoSZyleBd"
+      },
+      {
+        "article": {},
+        "attachments": {
+          "media_keys": [
+            "3_2113573943072215040"
+          ]
+        },
+        "author_id": "163073745",
+        "conversation_id": "2113573953490894868",
+        "created_at": "2026-10-23T10:11:13.000Z",
+        "display_text_range": [
+          0,
+          43
+        ],
+        "edit_controls": {
+          "editable_until": "2026-10-23T11:11:13.000Z",
+          "edits_remaining": 5,
+          "is_edit_eligible": true
+        },
+        "edit_history_tweet_ids": [
+          "2113573953490894868"
+        ],
+        "entities": {
+          "urls": [
+            {
+              "display_url": "pic.x.com/EjoSZyleBd",
+              "end": 67,
+              "expanded_url": "https://x.com/kemalcankaratas/status/2113573953490894868/photo/1",
+              "media_key": "3_2113573943072215040",
+              "start": 44,
+              "url": "https://t.co/EjoSZyleBd"
+            },
+            {
+              "display_url": "x.com/kemalcankarata…",
+              "end": 91,
+              "expanded_url": "https://twitter.com/kemalcankaratas/status/2059635512814501969",
+              "start": 68,
+              "url": "https://t.co/S2X7hBfktO"
+            }
+          ]
+        },
+        "geo": {},
+        "id": "2113573953490894868",
+        "lang": "tr",
+        "media_metadata": [
+          {
+            "media_key": "3_2113573943072215040"
+          }
+        ],
+        "note_tweet": {
+          "entities": {}
+        },
+        "paid_partnership": false,
+        "possibly_sensitive": false,
+        "public_metrics": {
+          "bookmark_count": 37,
+          "impression_count": 172190,
+          "like_count": 20568,
+          "quote_count": 9,
+          "reply_count": 29,
+          "retweet_count": 87
+        },
+        "referenced_tweets": [
+          {
+            "id": "2059635512814501969",
+            "type": "quoted"
+          }
+        ],
+        "reply_settings": "following",
+        "text": "Arkadaşlar babam kanseri yendi çok şükür❤️🙏 https://t.co/EjoSZyleBd https://t.co/S2X7hBfktO"
+      }
+    ],
+    "users": [
+      {
+        "affiliation": {},
+        "created_at": "2025-07-13T11:11:40.000Z",
+        "description": "",
+        "id": "1944353729039478784",
+        "is_identity_verified": false,
+        "most_recent_tweet_id": "2113694733881229411",
+        "name": "夏yt",
+        "profile_banner_url": "",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1944354035349454848/NXteD0OF_normal.png",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 1,
+          "following_count": 28,
+          "like_count": 134,
+          "listed_count": 0,
+          "media_count": 4,
+          "tweet_count": 63
+        },
+        "url": "",
+        "username": "xia_yt001",
+        "verified": false,
+        "verified_type": "none"
+      },
+      {
+        "affiliation": {},
+        "created_at": "2010-07-05T13:45:17.000Z",
+        "description": "Milli Eğitim Bakanlığı",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "display_url": "instagram.com/kemalcankarata…",
+                "end": 23,
+                "expanded_url": "http://instagram.com/kemalcankaratass",
+                "start": 0,
+                "url": "https://t.co/f9Uu3McxAn"
+              }
+            ]
+          }
+        },
+        "id": "163073745",
+        "is_identity_verified": false,
+        "location": "Adana, Türkiye",
+        "most_recent_tweet_id": "2113573953490894868",
+        "name": "Kemal Can",
+        "pinned_tweet_id": "1803129354995540473",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/163073745/1680452834",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/2069725450465669120/eLDrkkSm_normal.jpg",
+        "protected": false,
+        "public_metrics": {
+          "followers_count": 16993,
+          "following_count": 11986,
+          "like_count": 10533,
+          "listed_count": 4,
+          "media_count": 891,
+          "tweet_count": 8373
+        },
+        "url": "https://t.co/f9Uu3McxAn",
+        "username": "kemalcankaratas",
+        "verified": true,
+        "verified_type": "blue"
+      }
+    ]
+  }
+}
