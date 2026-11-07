@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-11-07T18:01:10",
+  "last_updated": "2026-11-07T18:01:22",
   "html": {
     "https://web.archive.org/web/20260713165940if_/https://twitter.com/xia_yt001/status/2076713179225395600": {
       "status": "done",
@@ -1056,16 +1056,18 @@
       "last_updated": "2026-10-29T17:49:49"
     },
     "https://pbs.twimg.com/profile_images/1802341836100415488/8murnzH__normal.jpg": {
-      "status": "unknown",
+      "status": "done",
       "referenced_by": [
         "20261023171059_twitter_com_xia_yt001_status_2113679591948894327.json"
-      ]
+      ],
+      "last_updated": "2026-11-07T18:01:21"
     },
     "https://pbs.twimg.com/profile_images/2069725450465669120/eLDrkkSm_normal.jpg": {
-      "status": "unknown",
+      "status": "done",
       "referenced_by": [
         "20261023181109_twitter_com_xia_yt001_status_2113694733881229411.json"
-      ]
+      ],
+      "last_updated": "2026-11-07T18:01:21"
     }
   },
   "media": {
@@ -1802,7 +1804,7 @@
       "last_updated": "2026-10-29T17:49:49"
     },
     "20261023171059_twitter_com_xia_yt001_status_2113679591948894327.json": {
-      "status": "unknown",
+      "status": "done",
       "depends_on": {
         "images": [
           "https://pbs.twimg.com/media/HVTaLJkbAAA5J9G.jpg"
@@ -1813,10 +1815,10 @@
           "https://pbs.twimg.com/profile_images/1802341836100415488/8murnzH__normal.jpg"
         ]
       },
-      "last_updated": "2026-11-07T18:01:10"
+      "last_updated": "2026-11-07T18:01:21"
     },
     "20261023181109_twitter_com_xia_yt001_status_2113694733881229411.json": {
-      "status": "unknown",
+      "status": "done",
       "depends_on": {
         "images": [
           "https://pbs.twimg.com/media/HVTsTZNXUAAtVaG.jpg"
@@ -1827,7 +1829,7 @@
           "https://pbs.twimg.com/profile_images/2069725450465669120/eLDrkkSm_normal.jpg"
         ]
       },
-      "last_updated": "2026-11-07T18:01:10"
+      "last_updated": "2026-11-07T18:01:21"
     },
     "20261023181209_twitter_com_xia_yt001_status_2113694986281910712.json": {
       "status": "done",
